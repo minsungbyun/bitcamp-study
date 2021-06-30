@@ -59,6 +59,10 @@ git commit -m "first commit"
 git push
 	id : user.name
 	pwd : token
+
+//가져오기(복제)
+git clone url
+git pull
 ```	
 
 ## 2일차(21.06.29)
@@ -116,6 +120,9 @@ git push
 		- 운영체제마다 기계어 배치방법이 다르다.
 	- `운영체제가 같고 cpu가 다르면?`
 		- 배치방법이 같아도 기계어 자체가 다르다.
+
+
+## 3일차(21.06.30)	
 	
 
 	 
