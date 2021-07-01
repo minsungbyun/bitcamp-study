@@ -1,6 +1,6 @@
 # bitcamp-study
 
-## 1일차(21.06.28)
+## 1일차(2021-06-28/월)
 
 - 수업내용
 	- 교육과정의 목표: 웹 개발자 역량 습득
@@ -65,7 +65,7 @@ git clone url
 git pull
 ```	
 
-## 2일차(21.06.29)
+## 2일차(2021-06-29/화)
 		
 - git 저장소 다루기
 	- git 서버 저장소를 로컬로 복제
@@ -122,7 +122,7 @@ git pull
 		- 배치방법이 같아도 기계어 자체가 다르다.
 
 
-## 3일차(21.06.30)	
+## 3일차(2021-06-30/수)	
 - 프로그래밍 도구 준비(계속)
 	- Java 11 JDK 설치
 		- JAVA_HOME 환경 변수 설정
@@ -184,11 +184,104 @@ git pull
 	- 빈 폴더는 백업이 되지 않는다.
 		- `README.md`를 넣는다.
 
-
 ```
 // 컴파일
 ./repo./javac -encoding utf-8 -d bin/main src/main/java/Hello.java
 // 실행
 ./repo./java -cp bin/main Hello	
 ```
+
+## 4일차(2021-07-01/목)
+- 프로그래밍 도구 준비(계속)
+	- Gradle 설치
+		- PATH 환경 변수 등록
+- 프로젝트 관리
+	- 애플리케이션과 프로젝트
+	- 루트 프로젝트와 서브 프로젝트
+	- 프로젝트와 작업
+	- 프로젝트 산출물을 보관하기 위한 디렉토리 구조
+	- 팀 프로젝트와 깃 저장소
+	- 깃 저장소로 프로젝트를 관리하는 다양한 유형
+- 교육 과정 진행 
+	- 이론과 실전 프로젝트를 병행하여 학습
+	- 실전 프로젝트(study-project)의 로드맵
+- 빌드 도구
+	- 빌드 도구 개요
+	- 다양한 빌드 도구: Ant, Maven, Gradle
+	- Gradle 빌드 도구를 이용하여 프로젝트 폴더 준비
+		- `gradle init`
+	- Gradle 빌드 도구로 생성한 디렉토리의 구조 및 파일 설명
+- Gradle 빌드 도구 사용법
+	- 빌드 스크립트 파일의 용도
+		- settings.gradle : 여러 프로젝트에 공통으로 적용할 설정 정보.
+		- app/build.gradle : 서브 프로젝트에만 적용하는 빌드 설정 정보.
+	- Gradle 기본 작업
+		- init : 현재 폴더를 프로젝트 폴더로 구성
+		- wrapper : Gradle 설치 및 실행 파일 생성
+		- gradle에 플러그인을 장착하면 더 많은 작업을 수행할 수 있다.
+	- 'java' gradle 플러그인  
+		- compileJava
+			- src/main/java 폴더에 있는 소스 파일을 모두 컴파일
+			- build/classes/java/main 폴더에 .class 파일을 둔다.
+		- compileTestJava
+			- src/test/java 폴더에 있는 소스 파일을 모두 컴파일
+			- build/classes/java/test 폴더에 .class 파일을 둔다.
+		- processResources
+			- src/main/resources 폴더에 있는 파일을 build/resources/main 폴더에 복사한다.
+		- processTestResources
+			- src/test/resources 폴더에 있는 파일을 build/resources/test 폴더에 복사한다.
+		- clean
+			- build 폴더를 삭제한다.
+		- classes
+			- compileJava와 processResources를 모두 수행
+		- testClasses
+			- classes + compileTestJava + processTestResources 수행
+		- check
+			- test + 단위 테스트 수행
+		- javadoc
+			- 소스 파일에서 javadoc 주석을 추출하여 HTML된 API 문서를 생성한다.
+		- build
+			- check + assemble(배포 파일 생성 작업) 수행
+	- 'application' gradle 플러그인  	
+		- run
+			- 'java' 플러그인의 classes 작업을 먼저 실행한다.
+			- 그런 후 application 설정에 지정한 클래스를 실행한다.
+		- build
+			- 이 플러그인을 장착한 상태에서 build 작업을 수행하면 고객에게 배포할 수 있는 파일을 build/distributions 폴더에 생성한다.
+			- 자바 프로그램을 실행시킬 수 있는 스크립트 파일도 자동 생성된다.
+	- 정리
+		- 1) init 작업을 통해 프로젝트 폴더를 준비한다.
+		- 2) build.script에 빌드 작업이 들어 있는 플러그인을 설정한다.		
+		- 3) 각 플러그인의 작업을 실행할 때 필요한 정보를 등록한다.
+		- 4) 프로젝트에서 사용할 외부 라이브러리 파일을 등록한다.
+		- 5) 필요한 작업을 실행하여 애플리케이션을 빌드한다.
+
+- 공부하면서 이해가 안되었거나 실수한 부분 정리	
+	- git repo.를 github에서 만들지 않고 cmd에서 명령어로 만들 수 없을까?
+	- 
+- 해결방법
+- 느낀점
+- 새로 알게 된 개념
+	- gradlew(리눅스,유닉스) 
+	- gradlew.bat(windows)
+		- Gradle 설치 안한 개발자들을 위해서 대비해서 들어가있다.
+
+	- Gradle plugin 설정시 `java`와 `application`의 차이
+		- java는 build 명령 시 distributions이 생성되지 않고, application로 설정하면 build 명령 시 distributions이 생성되어 배포할 수 있다.
+	- 사용자 홈 폴더는 영어로 만든다.
+
+```
+// 컴파일한 class파일 실행해줘
+gradle run
+// 조용히 좀 해
+gradle -q run
+// gradle폴더, gradlew, gradlew.bat이 없을 때
+gradle wrapper
+// - 프로젝트 세부정보
+gradle projects 
+gradle tasks --all
+// 빌드 날려
+gradle clear 
+```
+
 	 
