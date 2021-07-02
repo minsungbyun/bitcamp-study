@@ -112,6 +112,7 @@ git pull
 	- README.md = 현재 폴더가 무엇을 나타내는지 간략하게 설명
 	- 왜 README는 대문자로 쓸까?
 		- 리눅스에서는 대문자가 소문자보다 먼저 위치한다.<br>(전통)
+		- 윈도우에서는 대소문자 구별이 없다.
 	- .git -> local repo. 
 		- `절대 지우면 안됨` !!
 		- 지우게 되면 git을 사용하는 의미가 없다.
@@ -153,7 +154,7 @@ git pull
 
 - 공부하면서 이해가 안되었거나 실수한 부분 정리
 	- cmd에서 `git pull`할 때 해당 repo.에 가지않고 git directory에서 git pull을 하였다.
-	- compile시 저장을 누르지 않았다.
+	- compile시 저장을 누르지 않았다. (`*****`)
 	
 - 해결방법
 	- 어느 repo.에 있는 것을 가져올지 파악한다.
@@ -168,16 +169,16 @@ git pull
 		- *.class , *.exe ....
 		- 컴파일 된 파일은 넘길 필요 없겠죠?
 	- 라즈베리파이 
-	- REST API
+	- REST API (소프트웨어 아키텍처)
 	- Javascript는 산출물을 납품할 때 소스코드를 제공해야함(인터프리터 방식)
 		- 실무에서는 소스코드를 직접 주지 않는다. 
 		- 중요한 부분을 js로 짜지 않겠죠?
 	- 윈도우 `환경변수`설정 (제일 위 부터 읽는다)
 	- 어떤 프로그램이던 명령창에서 실행할 때 도움말을 보고 어떤 값을 넣어야 하는지 확인한다.
 	- 그냥 배우는 것이 아닌 왜 사용하는가를 고민하라 -> `비용절감, 유지보수(관리의 용이성)`
-	- `Project (프로젝트를 왜 만들어야 하는가?)`
+	- Project (프로젝트를 왜 만들어야 하는가?)
 		- 작업 단위
-		- 시작과 끝이 존재한다.
+		- 시작과 끝이 존재한다. (성과측정)
 		- 의존관계가 있는지? 없는지?
 		- 이 세상의 모든것은 프로젝트로 돌아간다.
 			- 작게 보면 너의 생활까지
@@ -187,8 +188,14 @@ git pull
 ```
 // 컴파일
 ./repo./javac -encoding utf-8 -d bin/main src/main/java/Hello.java
+
 // 실행
 ./repo./java -cp bin/main Hello	
+
+// 패키지가 있을 때
+.repo./java -cp bin/main packageName.className
+
+
 ```
 
 ## 4일차(2021-07-01/목)
@@ -264,8 +271,8 @@ git pull
 - 해결방법
 	- 아직 해결 못함.
 - 느낀점
-	- `잘못된 것이 없는데 실행이 되지 않을 때`
-		- `오타확인해, ctrl+s 확인해`
+	- 잘못된 것이 없는데 실행이 되지 않을 때
+		- 오타확인해, ctrl+s 확인해
 - 새로 알게 된 개념
 	- gradlew(리눅스,유닉스) 
 	- gradlew.bat(windows)
@@ -274,6 +281,7 @@ git pull
 	- Gradle plugin 설정시 `java`와 `application`의 차이
 		- java는 build 명령 시 distributions이 생성되지 않고, application로 설정하면 build 명령 시 distributions이 생성되어 배포할 수 있다.
 	- 사용자 홈 폴더는 영어로 만든다.
+	- 바탕화면 가는 방법 -> C:\Users\userName\Desktop
 
 ```
 // 컴파일한 class파일 실행해줘
@@ -294,5 +302,33 @@ gradle tasks --all
 // 빌드 날려
 gradle clear 
 ```
+
+## 5일차(2021-07-01,금)
+- 프로그래밍 도구 준비(계속)
+	- eclipse.org 에서 개발 도구 다운로드 및 설치
+	- eclipse IDE 환경 설정    
+		- eomcs-docs/devtool/개발도구준비.md 파일 참조
+- git 다루기
+	- 로컬 저장소 만들기
+		- `git init`
+	- 서버 저장소 만들기 
+		- `github.com`에서 new 버튼 클릭
+	- 로컬 저장소에 서버 저장소의 위치를 등록하기
+		- `git remote origin 서버저장소URL`
+	- 로컬 저장소의 내용을 서버에 올리기
+		- `git push`
+- 자바 기초 문법(eomcs-java)
+	- ex01
+		- 패키지 다루기
+		- 자바 소스 파일과 클래스 블록
+		- 소스 파일의 인코딩
+		- main() 메서드
+	- ex02
+		- 여러 줄 주석, 한 줄 주석
+		- javadoc 주석
+		- 애노테이션
+- 실전 프로젝트(eomcs-java-project-2021)
+	- 01-b : 프로젝트 준비하기 : `이클립스 IDE`로 임포트
+
 
 	 
