@@ -13,7 +13,7 @@ public class Exam0350 {
 
 //## 실습
 //1) 컴파일하기
-//- $ javac -d bin/main -encoding UTF-8 src/main/java/com/ohoracs/basic/ex03/Exam35.java
+//- $ javac -d bin/main -encoding UTF-8 src/main/java/com/eomcs/basic/ex03/Exam35.java
 //
 //2) 클래스 파일로 부동소수점 값 확인하기
 //- Exam35.class 파일을 hexdump 플러그인으로 출력한다.
@@ -55,7 +55,7 @@ public class Exam0350 {
 //      - K값은 2**(8-1) - 1 = 2**7 - 1 = 128 - 1 = 127 이다.
 //      - 예) 3(2의 제곱승) + 127(K값; bias) = 130
 //        예) 130 = 10000010(2진수)
-// => 4.4: 32비트 메모리에 담기
+// => 4.4: 32
 //    - [1:부호비트][8:지수부][23:가수부] = 32비트
 //    - 예) 0_10000010_10001100000000000000000
 //        = 01000001_01000110_00000000_00000000
