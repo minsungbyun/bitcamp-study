@@ -12,7 +12,11 @@ package com.eomcs.algorithm.quiz;
 public class Test005 {
 
   static int countWaysToChangeDigit(int value) {
+<<<<<<< HEAD
     int answer = 1;  
+=======
+    int answer = 0;  
+>>>>>>> refs/remotes/origin/main
     while (value > 0) {    
       answer *= 9 - value % 10;
       value /= 10;

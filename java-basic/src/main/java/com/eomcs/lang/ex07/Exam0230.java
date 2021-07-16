@@ -27,8 +27,9 @@ public class Exam0230 {
     // => 리턴 값을 받을 변수를 준비한다.
     // => 변수에 리턴 값을 받는다.
     // => 리턴 값과 변수의 타입이 같아야 한다.
-    String r = hello();
-    System.out.println(r);
+    //    String r = hello();
+    //    System.out.println(r);
+    System.out.println(hello());
 
 
 

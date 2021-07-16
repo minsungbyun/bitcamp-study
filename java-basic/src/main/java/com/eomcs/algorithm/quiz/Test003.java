@@ -18,11 +18,19 @@ public class Test003 {
       values[i + values.length / 2] = tmp;
     }
   }
+<<<<<<< HEAD
   
   public static void main(String[] args) {
     int[] values = {2, 4, 5, 6, 4, 3, 7, 8};
     changeValuePosition(values);
     
+=======
+
+  public static void main(String[] args) {
+    int[] values = {2, 4, 5, 6, 4, 3, 7, 8};
+    changeValuePosition(values);
+
+>>>>>>> refs/remotes/origin/main
     for (int v : values) {
       System.out.print(v + ",");
     }
