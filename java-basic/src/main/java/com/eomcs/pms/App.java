@@ -33,6 +33,12 @@ public class App {
       }  else if (input.equals("/task/list")) {
         TaskHandler.list();
 
+      } else if (input.equals("/board/add")) {
+        BoardHandler.add();
+
+      }  else if (input.equals("/board/list")) {
+        BoardHandler.list();
+
       } else {
         System.out.println("실행할 수 없는 명령입니다.");
       }

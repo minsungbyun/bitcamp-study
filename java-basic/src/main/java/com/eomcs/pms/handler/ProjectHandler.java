@@ -22,18 +22,36 @@ public class ProjectHandler {
     project.endDate = Prompt.inputDate("종료일? ");
 
     while (true) {
-      String owner = Prompt.inputString("만든이?(취소: 빈 문자열)");
-      if (MemberHandler.exist(owner)) {
+    String owner = Prompt.inputString("만든이?(취소: 빈 문자열)");
+      if (owner.length() == 0) { 
+        System.out.println("프로젝트 등록을 정지합니다.");
+        return;
+      } else if (MemberHandler.exist(owner)){
         project.owner = owner;
         break;
-      } else if (owner.length() == 0) {
-        System.out.println("프로젝트 등록을 취소합니다.");
-        return;
       }
       System.out.println("등록된 회원이 아닙니다.");
       continue;
     }
-    project.members = Prompt.inputString("팀원? ");
+
+
+
+    String members = "";
+    while(true){
+    String member = Prompt.inputString("팀원? (완료: 빈문자 입력)");
+      if(MemberHandler.exist(member)){
+        if(member.length() > 0) { 
+         members += ",";
+        } 
+        members += member; // 여긴 누적 맞는듯?ㅇㅇ 
+        continue;
+        } else if (member.length() == 0){
+        break;
+      }
+      System.out.println(" 등록된 회원이 아닙니다. ");
+    } 
+    
+    project.members = members;
 
     projects[size++] = project;
   }
