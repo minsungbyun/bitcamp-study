@@ -6,11 +6,11 @@ import com.eomcs.util.Prompt;
 public class ProjectHandler {
 
   static final int MAX_LENGTH = 5;
-  static Project[] projects = new Project[MAX_LENGTH];
-  static int size = 0;
+  Project[] projects = new Project[MAX_LENGTH];
+  int size = 0;
 
   //다른 패키지에 있는 App 클래스가 다음 메서드를 호출할 수 있도록 공개한다.
-  public static void add() {
+  public void add(MemberHandler memberHandler) {
     System.out.println("[프로젝트 등록]");
 
     Project project = new Project();
@@ -21,33 +21,116 @@ public class ProjectHandler {
     project.startDate = Prompt.inputDate("시작일? ");
     project.endDate = Prompt.inputDate("종료일? ");
 
+
     while (true) {
-      String owner = Prompt.inputString("만든이?(취소: 빈 문자열)");
-      if (MemberHandler.exist(owner)) {
+      String owner = Prompt.inputString("만든이?(취소: 빈 문자열) ");
+      if (memberHandler.exist(owner)) {
         project.owner = owner;
         break;
       } else if (owner.length() == 0) {
         System.out.println("프로젝트 등록을 취소합니다.");
-        return;
+        return; // 메서드 실행을 즉시 종료!
       }
       System.out.println("등록된 회원이 아닙니다.");
-      continue;
     }
-    project.members = Prompt.inputString("팀원? ");
+
+    String members = "";
+    while (true) {
+      String member = Prompt.inputString("팀원?(완료: 빈 문자열) ");
+      if (memberHandler.exist(member)) {
+        if (members.length() > 0) {
+          members += ",";
+        }
+        members += member;
+        continue;
+      } else if (member.length() == 0) {
+        break;
+      } 
+      System.out.println("등록된 회원이 아닙니다.");
+    }
+    project.members = members;
+
+    project.viewCount = 0;
 
     projects[size++] = project;
   }
 
   //다른 패키지에 있는 App 클래스가 다음 메서드를 호출할 수 있도록 공개한다.
-  public static void list() {
+  public void list() {
     System.out.println("[프로젝트 목록]");
-    for (int i = 0; i < size; i++) {
-      System.out.printf("%d, %s, %s, %s, %s\n",
-          projects[i].no, 
-          projects[i].title, 
-          projects[i].startDate, 
-          projects[i].endDate, 
-          projects[i].owner);
+    for (int i = 0; i < this.size; i++) {
+      System.out.printf("%d, %s, %s, %s, %s, [%s]\n",
+          this.projects[i].no, 
+          this.projects[i].title, 
+          this.projects[i].startDate, 
+          this.projects[i].endDate, 
+          this.projects[i].owner,
+          this.projects[i].members);
     }
   }
+
+  public void detail() {
+    System.out.println("[프로젝트 상세보기]");
+
+    int no = Prompt.inputInt("번호? "); // 입력받아
+
+    Project project = null;
+    for (int i = 0; i < this.size; i++) {
+      if (projects[i].no == no) {
+        project = projects[i];
+        break;
+      }
+
+    }
+    if (project == null) {
+      System.out.println("해당 번호의 게시글이 없습니다.");
+      return;
+    }
+
+    System.out.printf("번호: %d\n", project.no);
+    System.out.printf("제목: %s\n", project.title);
+    System.out.printf("내용: %s\n", project.content);
+    System.out.printf("작성자: %s\n", project.startDate);
+    System.out.printf("등록일: %s\n", project.endDate);
+    System.out.printf("팀원: %s\n", project.members);
+    System.out.printf("조회수: %d\n", ++project.viewCount);
+
+  }
+
+  public void update() {
+    System.out.println("[프로젝트 수정]");
+
+    int no = Prompt.inputInt("번호? "); // 입력받아
+
+    Project project = null;
+    for (int i = 0; i < this.size; i++) {
+      if (projects[i].no == no) {
+        project = projects[i];
+        break;
+      }
+
+    }
+    if (project == null) {
+      System.out.println("해당 번호의 게시글이 없습니다.");
+      return;
+    }
+
+    String title = Prompt.inputString(String.format("제목(%s): ", project.title));
+    String content = Prompt.inputString(String.format("내용(%s): ", project.content));
+
+
+    String input = Prompt.inputString("정말 변경하시겠습니까?(y/N) ");
+    if (input.equalsIgnoreCase("n") || input.length() == 0) {
+      System.out.println("회원 변경을 취소하였습니다.");
+      return;
+    }
+
+    project.title = title;
+    project.content = content;
+
+
+
+  }
+
+
 }
