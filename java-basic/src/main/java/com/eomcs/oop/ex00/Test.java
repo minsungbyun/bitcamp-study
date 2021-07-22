@@ -4,7 +4,6 @@ public class Test {
   static int a;
   int b;
 
-
   static void m1(int c) {
     int d = c + 100;
   }

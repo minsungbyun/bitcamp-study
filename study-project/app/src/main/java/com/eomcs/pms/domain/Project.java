@@ -13,5 +13,4 @@ public class Project {
   public String owner;
   public String members;
   public int viewCount;
-  public int like;
 }

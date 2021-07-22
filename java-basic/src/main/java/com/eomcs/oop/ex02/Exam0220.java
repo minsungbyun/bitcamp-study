@@ -5,6 +5,8 @@ package com.eomcs.oop.ex02;
 public class Exam0220 {
 
   // 계산 기능과 관련된 메서드를 별도의 블록으로 분리할 때 사용하는 문법이 "클래스"이다.
+  // 메서드를 분류했을 때 이점?
+  // - 
   static class Calculator {
     static int plus(int a, int b) {
       return a + b;

@@ -6,6 +6,7 @@ import com.eomcs.util.Prompt;
 public class TaskHandler {
 
   static final int MAX_LENGTH = 5;
+
   Task[] tasks = new Task[MAX_LENGTH];
   int size = 0;
 
@@ -63,45 +64,7 @@ public class TaskHandler {
           this.tasks[i].deadline, 
           stateLabel, 
           this.tasks[i].owner);
-
     }
+  }
 
-    public void detail() {
-      System.out.println("[작업 상세보기]");
-
-      int no = Prompt.inputInt("번호? "); // 입력받아
-
-      Task task = null;
-      for (int i = 0; i < this.size; i++) {
-        if (tasks[i].no == no) {
-          task = tasks[i];
-          break;
-        }
-      }
-
-      String stateLabel = null;
-      switch (task.status) {
-        case 1:
-          stateLabel = "진행중";
-          break;
-        case 2:
-          stateLabel = "완료";
-          break;
-        default:
-          stateLabel = "신규";
-
-
-
-          if (task == null) {
-            System.out.println("해당 번호의 게시글이 없습니다.");
-            return;
-          }
-
-
-          System.out.printf("번호: %d\n", task.no);
-          System.out.printf("제목: %s\n", task.content);
-          System.out.printf("마감일: %s\n", task.deadline);
-          System.out.printf("상태: %s\n", stateLabel);
-          System.out.printf("담당자: %s\n", task.owner);
-
-      }
+}

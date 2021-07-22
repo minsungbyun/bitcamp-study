@@ -10,14 +10,10 @@ public class App {
 
   public static void main(String[] args) {
 
-    // 각 게시판의 게시글을 담을 메모리(boards 레퍼런스 배열과 size)를 준비한다.
-    MemberHandler memberHandler = new MemberHandler();
-
-    ProjectHandler projectHandler = new ProjectHandler();
-
-    TaskHandler taskHandler = new TaskHandler();
-
     BoardHandler boardHandler = new BoardHandler();
+    MemberHandler memberHandler = new MemberHandler();
+    ProjectHandler projectHandler = new ProjectHandler();
+    TaskHandler taskHandler = new TaskHandler();
 
     while (true) {
       String input = Prompt.inputString("명령> ");
@@ -37,6 +33,9 @@ public class App {
       } else if (input.equals("/member/update")) {
         memberHandler.update();
 
+      } else if (input.equals("/member/delete")) {
+        memberHandler.delete();
+
       }  else if (input.equals("/project/add")) {
         projectHandler.add(memberHandler);
 
@@ -49,32 +48,34 @@ public class App {
       }  else if (input.equals("/project/update")) {
         projectHandler.update();
 
+      }  else if (input.equals("/project/delete")) {
+        projectHandler.list();
+
       }  else if (input.equals("/task/add")) {
         taskHandler.add(memberHandler);
 
       }  else if (input.equals("/task/list")) {
         taskHandler.list();
 
+      }  else if (input.equals("/task/update")) {
+        taskHandler.list();
+
+      }  else if (input.equals("/task/delete")) {
+        taskHandler.list();
+
       }  else if (input.equals("/board/add")) {
-        // BoardHandler의 add()를 실행할 때 
-        // add()에서 사용할 게시글 배열이 있는 인스턴스 주소를 넘겨준다.
         boardHandler.add();
 
       }  else if (input.equals("/board/list")) {
-        // BoardHandler의 list()를 실행할 때 
-        // list()에서 사용할 게시글 배열이 있는 인스턴스 주소를 넘겨준다.
         boardHandler.list();
 
-      } else if (input.equals("/board/detail")) {
-
+      }  else if (input.equals("/board/detail")) {
         boardHandler.detail();
 
-      } else if (input.equals("/board/update")) {
-
+      }  else if (input.equals("/board/update")) {
         boardHandler.update();
 
-      } else if (input.equals("/board/delete")) {
-
+      }  else if (input.equals("/board/delete")) {
         boardHandler.delete();
 
       } else {
