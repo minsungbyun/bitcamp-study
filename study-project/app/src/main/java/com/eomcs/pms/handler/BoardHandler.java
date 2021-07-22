@@ -126,10 +126,19 @@ public class BoardHandler {
       return;
     }
 
+    //    for (int i = boardIndex; i < this.size - 1; i++) {
+    //      this.boards[i] = this.boards[i +1]; //맨 뒤에 null 떙기면 null이다. 땡기더라도 어떻게 땡길지
+    //    }
     for (int i = boardIndex + 1; i < this.size; i++) {
       this.boards[i - 1] = this.boards[i]; //맨 뒤에 null 떙기면 null이다. 땡기더라도 어떻게 땡길지
     }
-    this.boards[--this.size] = null; // 맨마지막 null
+    //        this.boards[--this.size] = null; // 맨마지막 null
+    this.boards[this.size-1] = null; 
+    this.size--;// 맨마지막 null
+
+
+
+
 
     System.out.println("게시글을 삭제하였습니다.");
 

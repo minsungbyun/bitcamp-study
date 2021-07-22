@@ -2,18 +2,19 @@ package com.eomcs.oop.ex00;
 
 public class Calculator {
 
-  int result;
+  int result = 0;
 
-  void plus(int value) {
-    this.result += value;
+  static void plus(Calculator that, int value) { 
+    that.result = that.result + value; // 들어온 값 누적해서 result 저장
   }
 
-  void minus(int value) {
-    this.result -= value;
+  static void minus(Calculator that, int value) {
+    that.result = that.result - value;
   }
 
-  void multiple(int value) {
-    this.result *= value;
+  static void multiple(Calculator that, int value) {
+    that.result = that.result * value;
   }
+
 
 }
