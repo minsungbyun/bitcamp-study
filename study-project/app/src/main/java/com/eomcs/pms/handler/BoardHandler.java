@@ -47,14 +47,7 @@ public class BoardHandler {
     System.out.println("[게시글 상세보기]");
     int no = Prompt.inputInt("번호? ");
 
-    Board board = null;
-
-    for (int i = 0; i < this.size; i++) {
-      if (boards[i].no == no) {
-        board = boards[i];
-        break;
-      }
-    }
+    Board board = findByNo(no);
 
     if (board == null) {
       System.out.println("해당 번호의 게시글이 없습니다.");
@@ -72,20 +65,14 @@ public class BoardHandler {
     System.out.println("[게시글 변경]");
     int no = Prompt.inputInt("번호? ");
 
-    Board board = null;
-
-    for (int i = 0; i < this.size; i++) {
-      if (boards[i].no == no) {
-        board = boards[i];
-        break;
-      }
-    }
+    Board board = findByNo(no);
 
     if (board == null) {
       System.out.println("해당 번호의 게시글이 없습니다.");
       return;
     }
 
+    //일단 임시변수에 담아
     String title = Prompt.inputString(String.format("제목(%s)? ", board.title));
     String content = Prompt.inputString(String.format("내용(%s)? ", board.content));
 
@@ -104,49 +91,47 @@ public class BoardHandler {
     System.out.println("[게시글 삭제]");
     int no = Prompt.inputInt("번호? ");
 
-    int boardIndex = -1;
+    int index = indexOf(no);
 
-    // Board 인스턴스가 들어있는 배열을 뒤져서 
-    // 게시글 번호와 일치하는 Board 인스턴스를 찾는다 
-    for (int i = 0; i < this.size; i++) {
-      if (boards[i].no == no) {
-        boardIndex = i; //삭제할 번호를 갖고 있는 인덱스 번호
-        break;
-      }
-    }
-
-    if (boardIndex == -1) {
+    if (index == -1) {
       System.out.println("해당 번호의 게시글이 없습니다.");
       return;
     }
 
-    String input = Prompt.inputString("정말 삭제하시겠습니까?(y/N)");
+    String input = Prompt.inputString("정말 삭제하시겠습니까?(y/N) ");
     if (input.equalsIgnoreCase("n") || input.length() == 0) {
-      System.out.println("게시글 작성을 취소하였습니다.");
+      System.out.println("게시글 삭제를 취소하였습니다.");
       return;
     }
 
-    //    for (int i = boardIndex; i < this.size - 1; i++) {
-    //      this.boards[i] = this.boards[i +1]; //맨 뒤에 null 떙기면 null이다. 땡기더라도 어떻게 땡길지
-    //    }
-    for (int i = boardIndex + 1; i < this.size; i++) {
-      this.boards[i - 1] = this.boards[i]; //맨 뒤에 null 떙기면 null이다. 땡기더라도 어떻게 땡길지
+    for (int i = index + 1; i < this.size; i++) {
+      this.boards[i - 1] = this.boards[i];
     }
-    //        this.boards[--this.size] = null; // 맨마지막 null
-    this.boards[this.size-1] = null; 
-    this.size--;// 맨마지막 null
-
-
-
-
+    this.boards[--this.size] = null;
 
     System.out.println("게시글을 삭제하였습니다.");
+  }
 
 
+  private Board findByNo(int no) {
+    // 사용자가 입력한 넘버를 받아서 기존에 있는 넘버랑 비교한 후 주소를 리턴
+    for (int i = 0; i < this.size; i++) {
+      if (this.boards[i].no == no) {
+        return this.boards[i];
+      }
+    }
+    return null;
+  }
 
-
-
-
+  private int indexOf(int no) {
+    // Board 인스턴스가 들어 있는 배열을 뒤져서
+    // 게시글 번호와 일치하는 Board 인스턴스를 찾는다. 
+    for (int i = 0; i < this.size; i++) {
+      if (this.boards[i].no == no) {
+        return i;
+      }
+    }
+    return -1;
   }
 
 }
