@@ -12,7 +12,7 @@ public class App {
 
     BoardHandler boardHandler = new BoardHandler();
     MemberHandler memberHandler = new MemberHandler();
-    ProjectHandler projectHandler = new ProjectHandler();
+    ProjectHandler projectHandler = new ProjectHandler(memberHandler);
     TaskHandler taskHandler = new TaskHandler();
 
     while (true) {
@@ -37,7 +37,7 @@ public class App {
         memberHandler.delete();
 
       }  else if (input.equals("/project/add")) {
-        projectHandler.add(memberHandler);
+        projectHandler.add();
 
       }  else if (input.equals("/project/list")) {
         projectHandler.list();
@@ -46,7 +46,7 @@ public class App {
         projectHandler.detail();
 
       }  else if (input.equals("/project/update")) {
-        projectHandler.update(memberHandler);
+        projectHandler.update();
 
       }  else if (input.equals("/project/delete")) {
         projectHandler.delete();

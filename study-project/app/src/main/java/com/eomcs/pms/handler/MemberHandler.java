@@ -49,6 +49,7 @@ public class MemberHandler {
       System.out.println("해당 번호의 회원이 없습니다.");
       return;
     }
+
     System.out.printf("이름: %s\n", member.name);
     System.out.printf("이메일: %s\n", member.email);
     System.out.printf("사진: %s\n", member.photo);
@@ -66,6 +67,7 @@ public class MemberHandler {
       System.out.println("해당 번호의 회원이 없습니다.");
       return;
     }
+
     String name = Prompt.inputString("이름(" + member.name  + ")? ");
     String email = Prompt.inputString("이메일(" + member.email + ")? ");
     String password = Prompt.inputString("암호? ");
@@ -138,7 +140,6 @@ public class MemberHandler {
     }
     return -1;
   }
-
 
 }
 
