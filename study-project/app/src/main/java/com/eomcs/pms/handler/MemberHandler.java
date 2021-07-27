@@ -43,12 +43,20 @@ public class MemberHandler {
     System.out.println("[회원 상세보기]");
     int no = Prompt.inputInt("번호? ");
 
-    Member member = findByNo(no);
+    Member member = null;
+
+    for (int i = 0; i < this.size; i++) {
+      if (this.members[i].no == no) {
+        member = this.members[i];
+        break;
+      }
+    }
 
     if (member == null) {
       System.out.println("해당 번호의 회원이 없습니다.");
       return;
     }
+
     System.out.printf("이름: %s\n", member.name);
     System.out.printf("이메일: %s\n", member.email);
     System.out.printf("사진: %s\n", member.photo);
@@ -60,12 +68,20 @@ public class MemberHandler {
     System.out.println("[회원 변경]");
     int no = Prompt.inputInt("번호? ");
 
-    Member member = findByNo(no);
+    Member member = null;
+
+    for (int i = 0; i < this.size; i++) {
+      if (this.members[i].no == no) {
+        member = this.members[i];
+        break;
+      }
+    }
 
     if (member == null) {
       System.out.println("해당 번호의 회원이 없습니다.");
       return;
     }
+
     String name = Prompt.inputString("이름(" + member.name  + ")? ");
     String email = Prompt.inputString("이메일(" + member.email + ")? ");
     String password = Prompt.inputString("암호? ");
@@ -91,7 +107,14 @@ public class MemberHandler {
     System.out.println("[회원 삭제]");
     int no = Prompt.inputInt("번호? ");
 
-    int index = indexOf(no);
+    int index = -1;
+
+    for (int i = 0; i < this.size; i++) {
+      if (this.members[i].no == no) {
+        index = i;
+        break;
+      }
+    }
 
     if (index == -1) {
       System.out.println("해당 번호의 회원이 없습니다.");
@@ -119,24 +142,6 @@ public class MemberHandler {
       }
     }
     return false;
-  }
-
-  private Member findByNo(int no) {
-    for (int i = 0; i < this.size; i++) {
-      if (this.members[i].no == no) {
-        return this.members[i];
-      }
-    }
-    return null;
-  }
-
-  private int indexOf(int no) {
-    for (int i = 0; i < this.size; i++) {
-      if (this.members[i].no == no) {
-        return i;
-      }
-    }
-    return -1;
   }
 
 

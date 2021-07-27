@@ -28,6 +28,7 @@ public class Exam0630 {
     // 클래스가 로딩되는 경우,
     // 2) 클래스 멤버(필드와 메서드)를 최초로 사용할 때
     A.m();
+
     System.out.println("종료!");
   }
 }

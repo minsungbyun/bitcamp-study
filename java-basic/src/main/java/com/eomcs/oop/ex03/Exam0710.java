@@ -16,7 +16,7 @@ public class Exam0710 {
     //   생성자에 공통으로 들어갈 코드를 작성하면 된다.
     //
     {
-      a = 100;
+      a = 100; // this 생략
       System.out.println("Hello!");
     }
 

@@ -47,7 +47,14 @@ public class BoardHandler {
     System.out.println("[게시글 상세보기]");
     int no = Prompt.inputInt("번호? ");
 
-    Board board = findByNo(no);
+    Board board = null;
+
+    for (int i = 0; i < this.size; i++) {
+      if (this.boards[i].no == no) {
+        board = this.boards[i];
+        break;
+      }
+    }
 
     if (board == null) {
       System.out.println("해당 번호의 게시글이 없습니다.");
@@ -65,14 +72,20 @@ public class BoardHandler {
     System.out.println("[게시글 변경]");
     int no = Prompt.inputInt("번호? ");
 
-    Board board = findByNo(no);
+    Board board = null;
+
+    for (int i = 0; i < this.size; i++) {
+      if (this.boards[i].no == no) {
+        board = this.boards[i];
+        break;
+      }
+    }
 
     if (board == null) {
       System.out.println("해당 번호의 게시글이 없습니다.");
       return;
     }
 
-    //일단 임시변수에 담아
     String title = Prompt.inputString(String.format("제목(%s)? ", board.title));
     String content = Prompt.inputString(String.format("내용(%s)? ", board.content));
 
@@ -91,9 +104,18 @@ public class BoardHandler {
     System.out.println("[게시글 삭제]");
     int no = Prompt.inputInt("번호? ");
 
-    int index = indexOf(no);
+    int boardIndex = -1;
 
-    if (index == -1) {
+    // Board 인스턴스가 들어 있는 배열을 뒤져서
+    // 게시글 번호와 일치하는 Board 인스턴스를 찾는다. 
+    for (int i = 0; i < this.size; i++) {
+      if (this.boards[i].no == no) {
+        boardIndex = i;
+        break;
+      }
+    }
+
+    if (boardIndex == -1) {
       System.out.println("해당 번호의 게시글이 없습니다.");
       return;
     }
@@ -104,34 +126,12 @@ public class BoardHandler {
       return;
     }
 
-    for (int i = index + 1; i < this.size; i++) {
+    for (int i = boardIndex + 1; i < this.size; i++) {
       this.boards[i - 1] = this.boards[i];
     }
     this.boards[--this.size] = null;
 
     System.out.println("게시글을 삭제하였습니다.");
-  }
-
-
-  private Board findByNo(int no) {
-    // 사용자가 입력한 넘버를 받아서 기존에 있는 넘버랑 비교한 후 주소를 리턴
-    for (int i = 0; i < this.size; i++) {
-      if (this.boards[i].no == no) {
-        return this.boards[i];
-      }
-    }
-    return null;
-  }
-
-  private int indexOf(int no) {
-    // Board 인스턴스가 들어 있는 배열을 뒤져서
-    // 게시글 번호와 일치하는 Board 인스턴스를 찾는다. 
-    for (int i = 0; i < this.size; i++) {
-      if (this.boards[i].no == no) {
-        return i;
-      }
-    }
-    return -1;
   }
 
 }
