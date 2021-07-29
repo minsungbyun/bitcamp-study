@@ -8,6 +8,5 @@ public class Board {
   public String content;
   public String writer;
   public Date registeredDate;
-  public int viewCount;
-  public int like;
+
 }
