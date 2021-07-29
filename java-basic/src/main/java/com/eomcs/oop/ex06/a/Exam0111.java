@@ -7,6 +7,8 @@ public class Exam0111 {
 
     Bike bike = new Bike();
 
+
+
     Vehicle vehicle = bike; // OK
 
     // 이렇게 상위 클래스의 레퍼런스로 하위 클래스의 인스턴스를 가리킬 수 있는 이유?
@@ -18,6 +20,8 @@ public class Exam0111 {
     // vehicle을 통해 Vehicle의 인스턴스 변수에 접근할 수 있다.
     vehicle.model = "티코";
     vehicle.capacity = 5;
+
+
 
     // 왜?
     // => Bike 인스턴스에는 수퍼 클래스인 Vehicle의 인스턴스 변수가 있기 때문.

@@ -19,6 +19,10 @@ public class Exam0120 {
     static float plus(float a, float b) {
       return a + b;
     }
+
+    static double plus(double a, double b) {
+      return a + b;
+    }
   }
 
   public static void main(String[] args) {
@@ -29,8 +33,9 @@ public class Exam0120 {
     int r1 = Calculator.plus(100, 200);
     int r2 = Calculator.plus(100);
     float r3 = Calculator.plus(35.7f, 22.2f);
+    double r4 = Calculator.plus(22.2, 23.2);
 
-    System.out.printf("%d, %d, %.1f\n", r1, r2, r3);
+    System.out.printf("%d, %d, %.1f, %f\n", r1, r2, r3, r4);
 
     // 오버로딩(overloading)?
     // => 파라미터의 형식은 다르지만 같은 기능을 수행하는 메서드에 대해

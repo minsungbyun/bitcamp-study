@@ -21,6 +21,7 @@ public class Exam0112 {
     // 다음과 같이 Bike 레퍼런스로 Bike 인스턴스 변수를 사용하려 할 것이다.
     b2.engine = true;
 
+
     // 그러나, b2가 실제 가리키는 것은 Bike의 인스턴스가 아니기 때문에
     // Bike의 engine 변수를 사용할 수 없다.
     //

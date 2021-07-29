@@ -28,10 +28,14 @@ public class Exam0210 {
     ((Sedan)c).sunroof = true; // OK!
     ((Sedan)c).auto = true;    // OK!
 
+
+
     // => 또는 인스턴스의 원래 클래스 레퍼런스에 저장한 다음에 사용.
     Sedan s = (Sedan)c;
     s.sunroof = true;
     s.auto = true;
+
+
   }
 
 }
