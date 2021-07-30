@@ -68,6 +68,7 @@ class DumpTruckFactory2 extends TruckFactory {
   //  Car makeCar() {
   //    return new Car();
   //  };
+  // 모든 자동차가 트럭이다 x
 }
 
 

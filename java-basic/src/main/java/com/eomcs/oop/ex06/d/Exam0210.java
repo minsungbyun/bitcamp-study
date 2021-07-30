@@ -3,7 +3,7 @@ package com.eomcs.oop.ex06.d;
 
 
 abstract class Car {
-  public abstract void run();
+  public void run() { System.out.println("car의 메서드");}
   public void m() {}
 }
 
@@ -12,6 +12,7 @@ class Sedan extends Car {
   public void run() {
     System.out.println("Sedan.run() 호출됨!");
   }
+
 }
 
 public class Exam0210 {

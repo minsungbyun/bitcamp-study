@@ -18,7 +18,7 @@ class Score3 {
   // - 이런 메서드를 "세터(setter)"라 부른다.
   // - 외부에서 호출할 수 있도록 공개 모드로 설정한다.
   // - 필드를 비공개로 막으면 값을 조회할 수 없기 때문에
-  //   getter를 추가해야 한다.
+  //   getter도 추가해야 한다.
   //
   public void setKor(int kor) {
     this.kor = kor;
@@ -76,6 +76,7 @@ public class Exam0311 {
     s1.setKor(100);
     s1.setEng(90);
     s1.setMath(80);
+
 
     // 세터를 통해서 국, 영, 수 값을 설정할 때마다
     // 합계와 평균을 자동으로 계산하기 때문에 직접 compute()를 호출할 필요가 없다.
