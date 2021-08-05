@@ -45,6 +45,7 @@ public class Exam0210 extends com.eomcs.oop.ex08.b.sub.C {
     obj4.publicVar = 100;
 
     com.eomcs.oop.ex08.b.sub.C obj5 = new Exam0210();
+    obj5.publicVar = 100;
   }
 
   void m1(com.eomcs.oop.ex08.b.sub.C obj) {

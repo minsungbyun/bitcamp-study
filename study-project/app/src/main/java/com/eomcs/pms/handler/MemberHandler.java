@@ -6,18 +6,15 @@ import com.eomcs.util.Prompt;
 
 public class MemberHandler {
 
-  static final int MAX_LENGTH = 5;
+  MemberList2 memberList = new MemberList2();
 
-  // Member 인스턴스의 주소를 저장할 레퍼런스를 3개 생성한다.
-  static Member[] members = new Member[MAX_LENGTH];
-  static int size = 0;
+  public MemberList2 getMemberList() {
+    return memberList;
+  }
 
-  // 다른 패키지에 있는 App 클래스가 다음 메서드를 호출할 수 있도록 공개한다.
-  public static void add() {
+  public void add() {
     System.out.println("[회원 등록]");
 
-    // 새 회원 정보를 담을 변수를 준비한다.
-    // 낱 개의 변수가 아니라 Member에 정의된 대로 묶음 변수를 만든다.
     Member member = new Member();
 
     member.no = Prompt.inputInt("번호? ");
@@ -28,29 +25,94 @@ public class MemberHandler {
     member.tel = Prompt.inputString("전화? ");
     member.registeredDate = new Date(System.currentTimeMillis());
 
-    members[size++] = member;
+    memberList.add(member);
   }
 
-  //다른 패키지에 있는 App 클래스가 다음 메서드를 호출할 수 있도록 공개한다.
-  public static void list() {
+  public void list() {
     System.out.println("[회원 목록]");
-    for (int i = 0; i < size; i++) {
+
+    Member[] list = memberList.toArray();
+
+    for (Member member : list) {
       System.out.printf("%d, %s, %s, %s, %s\n", 
-          members[i].no, 
-          members[i].name, 
-          members[i].email, 
-          members[i].tel, 
-          members[i].registeredDate);
+          member.no, 
+          member.name, 
+          member.email, 
+          member.tel, 
+          member.registeredDate);
     }
   }
 
-  static boolean exist(String name) {
-    for (int i = 0; i < size; i++) {
-      if (members[i].name.equals(name)) {
-        return true;
-      }
+  public void detail() {
+    System.out.println("[회원 상세보기]");
+    int no = Prompt.inputInt("번호? ");
+
+    Member member = memberList.findByNo(no);
+
+    if (member == null) {
+      System.out.println("해당 번호의 회원이 없습니다.");
+      return;
     }
-    return false;
+
+    System.out.printf("이름: %s\n", member.name);
+    System.out.printf("이메일: %s\n", member.email);
+    System.out.printf("사진: %s\n", member.photo);
+    System.out.printf("전화: %s\n", member.tel);
+    System.out.printf("등록일: %s\n", member.registeredDate);
+  }
+
+  public void update() {
+    System.out.println("[회원 변경]");
+    int no = Prompt.inputInt("번호? ");
+
+    Member member = memberList.findByNo(no);
+
+    if (member == null) {
+      System.out.println("해당 번호의 회원이 없습니다.");
+      return;
+    }
+
+    String name = Prompt.inputString("이름(" + member.name  + ")? ");
+    String email = Prompt.inputString("이메일(" + member.email + ")? ");
+    String password = Prompt.inputString("암호? ");
+    String photo = Prompt.inputString("사진(" + member.photo + ")? ");
+    String tel = Prompt.inputString("전화(" + member.tel + ")? ");
+
+    String input = Prompt.inputString("정말 변경하시겠습니까?(y/N) ");
+    if (input.equalsIgnoreCase("n") || input.length() == 0) {
+      System.out.println("회원 변경을 취소하였습니다.");
+      return;
+    }
+
+    member.name = name;
+    member.email = email;
+    member.password = password;
+    member.photo = photo;
+    member.tel = tel;
+
+    System.out.println("회원을 변경하였습니다.");
+  }
+
+  public void delete() {
+    System.out.println("[회원 삭제]");
+    int no = Prompt.inputInt("번호? ");
+
+    Member member = memberList.findByNo(no);
+
+    if (member == null) {
+      System.out.println("해당 번호의 회원이 없습니다.");
+      return;
+    }
+
+    String input = Prompt.inputString("정말 삭제하시겠습니까?(y/N) ");
+    if (input.equalsIgnoreCase("n") || input.length() == 0) {
+      System.out.println("회원 삭제를 취소하였습니다.");
+      return;
+    }
+
+    memberList.remove(member);
+
+    System.out.println("회원을 삭제하였습니다.");
   }
 
 }
