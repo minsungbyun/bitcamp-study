@@ -4,33 +4,51 @@ package com.eomcs.oop.ex11.c;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Exam0710 {
-  public static void main(final String[] args) {
-    final Musics m1 = new Musics();
+public class Exam0711 {
+  public static void main( String[] args) {
+    Musics1 m1 = new Musics1();
     m1.add("aaa.mp3");
     m1.add("bbb.mp3");
-    m1.add("bbb.mp3");
+    m1.add("ccc.mp3");
 
-    final Musics.Player p1 = m1.new Player();
-    final Musics.Player p2 = m1.new Player();
+    Musics1 m2 = new Musics1();
+    m2.add("xxx.mp3");
+    m2.add("yyy.mp3");
+
+    Musics1.Player p1 = new Musics1.Player(m1);
+    Musics1.Player p2 = new Musics1.Player(m2);
 
     p1.play();
     p2.play();
 
-    final Musics m2 = new Musics();
-    m2.add("xxx.mp3");
-    m2.add("yyy.mp3");
-
-    final Musics.Player p3 = m2.new Player();
-
-    p3.play();
   }
 }
 
 
-class Musics {
+class Musics1 {
 
-  class Player {
+  List<String> songs = new ArrayList<>();
+
+  public void add(final String song) {
+    songs.add(song);
+  }
+
+  public void delete(final int index) {
+    songs.remove(index);
+  }
+
+
+  static class Player {
+    // 스태틱 중첩 클래스에서 바깥 클래스의 인스턴스를 사용하려면
+    // 다음과 같이 바깥 클래스의 인스턴스 주소를 저장하는 변수를 개발자가 직접 선언해 줘야 한다.
+    Musics1 music1;
+
+    // Player가 사용 할 Music 객체를 생성자의 파라미터로 받는다.
+    // 바깥 클래스의 인스턴스 주소를 받는 파라미터를
+    public Player(Musics1 music) {
+      this.music1 = music;
+    }
+
     public void play() {
       // 이 메서드가 호출되려면, Player 객체가 존재해야 한다.
       // Player 객체가 존재하려면, Musics 객체가 존재해야 한다.
@@ -47,15 +65,7 @@ class Musics {
     }
   }
 
-  List<String> songs = new ArrayList<>();
 
-  public void add(final String song) {
-    songs.add(song);
-  }
-
-  public void delete(final int index) {
-    songs.remove(index);
-  }
 }
 
 
