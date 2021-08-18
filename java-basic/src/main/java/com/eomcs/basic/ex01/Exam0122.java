@@ -25,7 +25,7 @@ public class Exam0122 extends Object {
 
   public static void main(String[] args) {
     Score s1 = new Score("홍길동", 100, 100, 100);
-    
+
     String str = s1.toString();
     // toString()?
     // => Score 클래스의 수퍼 클래스인 Object의 메서드이다.
@@ -33,7 +33,7 @@ public class Exam0122 extends Object {
     //    자동으로 java.lang.Object 클래스가 수퍼 클래스로 지정된다.
     // => 그래서 자바의 모든 클래스는 toString()을 호출할 수 있다.
     //    즉 자바의 모든 클래스는 Object 클래스에 정의된 메서드를 호출할 수 있다.
-    
+
     System.out.println(str);
     // toString()의 리턴 값?
     // => Object의 toString()을 호출하면 다음 형식의 문자열을 리턴한다. 

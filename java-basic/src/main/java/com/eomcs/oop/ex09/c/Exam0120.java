@@ -30,6 +30,7 @@ public class Exam0120 {
     // ProtocolC 규칙 준수!
     @Override
     public void rule3() {System.out.println("rule3()");}
+
   }
 
   void test() {
