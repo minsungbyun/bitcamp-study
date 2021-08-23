@@ -27,7 +27,7 @@ public class Exam0213 {
     //    list1 = new ArrayList<Object>(); // 컴파일 오류!
     list1 = new ArrayList<>();
     list1 = new ArrayList<A>();
-    //    list1 = new ArrayList<B1>(); // 컴파일 오류!
+    //        list1 = new ArrayList<B1>(); // 컴파일 오류!
     //    list1 = new ArrayList<B2>(); // 컴파일 오류!
     //    list1 = new ArrayList<C>(); // 컴파일 오류!
 

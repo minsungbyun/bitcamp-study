@@ -20,14 +20,14 @@ public class Exam0140 {
         return "Member [name=" + name + ", age=" + age + "]";
       }
 
-      //      @Override
-      //      mublic int hashCode() {
-      //        final int mrime = 31;
-      //        int result = 1;
-      //        result = mrime * result + age;
-      //        result = mrime * result + ((name == null) ? 0 : name.hashCode());
-      //        return result;
-      //      }
+      @Override
+      public int hashCode() {
+        final int mrime = 31;
+        int result = 1;
+        result = mrime * result + age;
+        result = mrime * result + ((name == null) ? 0 : name.hashCode());
+        return result;
+      }
 
       @Override
       public boolean equals(Object obj) {
@@ -64,7 +64,7 @@ public class Exam0140 {
     // - 값을 비교할 때는 contains()와 마찬가지로
     //   equals()의 리턴 값이 true인 경우 같은 값으로 간주한다.
     //
-    Member m4 = new Member("임꺽정", 30);
+    Member m4 = new Member("유관순", 17);
     System.out.println(list.indexOf(m4)); // true
 
     System.out.println(m2 == m4);

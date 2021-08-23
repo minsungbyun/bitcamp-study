@@ -48,27 +48,30 @@ public class ArrayList extends AbstractList {
     }
     return -1;
   }
+
   @Override
-  public Object get(int index) { // 인덱스를 꺼내는 방법이 달라서 각각 구현
-    if (index < 0 || index >= this.size) { // 유효하지 않은 인덱스인 경우
+  public Object get(int index) { // 인덱스 확인 
+
+    if (index < 0 || index >= this.size) { // 유효성 검사 
       return null;
     }
     return this.list[index];
+
   }
 
   @Override
   public Object remove(int index) {
 
-    if (index < 0 || index >= this.size) { // index가 무효하다면
+    if (index < 0 || index >= this.size) { // 유효성 검사 
       return null;
     }
 
-    Object deleted = this.list[index]; // 삭제할 항목 저장
+    Object deleted = this.list[index];
 
-    for (int i = index + 1; i < this.size; i++) {
-      this.list[i - 1] = this.list[i];
+    for (int i = index + 1; i < size; i++) {
+      list[i - 1] = list[i];
     }
-    this.list[--this.size] = null;
+    list[--size] = null;
 
     return deleted;
   }
