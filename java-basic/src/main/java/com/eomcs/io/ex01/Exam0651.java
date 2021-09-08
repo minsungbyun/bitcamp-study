@@ -16,6 +16,10 @@ public class Exam0651 {
     File[] files = dir.listFiles(file -> 
     (file.isFile() && file.getName().endsWith(".java")) ? true : false);
 
+
+
+
+
     for (File file : files) {
       System.out.printf("%s %12d %s\n", file.isDirectory() ? "d" : "-", file.length(),
           file.getName());

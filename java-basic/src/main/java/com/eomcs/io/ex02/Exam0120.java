@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 
 public class Exam0120 {
 
+
   public static void main(String[] args) throws Exception {
     // 1) 파일 데이터 읽기를 담당할 객체를 준비한다.
     // - new FileInputStream(파일경로)

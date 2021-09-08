@@ -7,13 +7,14 @@ public class Exam0120 {
 
   public static void main(String[] args) {
     Stack<String> stack = new Stack<>();
-    
+
     // push() - 스택의 맨 마지막에 값을 추가한다.
     stack.push("aaa");
     stack.push("bbb");
     stack.push("ccc");
-    
-    while (!stack.empty()) {
+    stack.push("ddd");
+
+    while (!stack.empty()) { // 비어있지 않았지?    스택이 비어있지 않다면 계속 꺼내라
       System.out.println(stack.pop());
     }
   }

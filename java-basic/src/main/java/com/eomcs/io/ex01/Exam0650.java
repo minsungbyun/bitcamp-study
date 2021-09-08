@@ -27,6 +27,10 @@ public class Exam0650 {
       return false;
     });
 
+
+
+
+
     for (File file : files) {
       System.out.printf("%s %12d %s\n", file.isDirectory() ? "d" : "-", file.length(),
           file.getName());
