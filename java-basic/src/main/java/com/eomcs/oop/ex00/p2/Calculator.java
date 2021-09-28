@@ -2,7 +2,7 @@ package com.eomcs.oop.ex00.p2;
 
 public class Calculator {
 
-  static int result;
+  static int result; //6
 
   static void plus(int value) {
     result += value;

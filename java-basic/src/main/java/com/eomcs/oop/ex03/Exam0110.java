@@ -32,7 +32,7 @@ public class Exam0110 {
     // 인스턴스 변수는 레퍼런스를 통해 사용할 수 있다.
     obj1.v1 = 100;
     obj2.v1 = 200;
-    obj3.v1 = 300;
+    obj3.v1 = 030;
 
     System.out.printf("%d, %d, %d\n", obj1.v1, obj2.v1, obj3.v1);
   }

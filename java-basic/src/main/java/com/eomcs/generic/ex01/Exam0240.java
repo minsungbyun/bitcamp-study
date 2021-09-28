@@ -21,7 +21,7 @@ public class Exam0240 {
 
     b1.set(new Member("홍길동", 20));
     b2.set("Hello");
-    b3.set(100);
+    b3.set(100); 
 
     // 제네릭을 사용하면 get() 메서드가 각 타입별로 존재하는 것처럼 사용할 수 있다.
     // => 즉 형변환 할 필요가 없다.
