@@ -1,20 +1,21 @@
 package com.eomcs.pms.handler;
 
-import java.util.List;
 import com.eomcs.pms.domain.Project;
+import com.eomcs.request.RequestAgent;
 import com.eomcs.util.Prompt;
 
-public class ProjectAddHandler extends AbstractProjectHandler {
+public class ProjectAddHandler implements Command {
 
+  RequestAgent requestAgent;
   MemberPrompt memberPrompt;
 
-  public ProjectAddHandler(List<Project> projectList, MemberPrompt memberPrompt) {
-    super(projectList);
+  public ProjectAddHandler(RequestAgent requestAgent, MemberPrompt memberPrompt) {
+    this.requestAgent = requestAgent;
     this.memberPrompt = memberPrompt;
   }
 
   @Override
-  public void execute() {
+  public void execute(CommandRequest request) throws Exception {
     System.out.println("[프로젝트 등록]");
 
     Project project = new Project();
@@ -27,9 +28,13 @@ public class ProjectAddHandler extends AbstractProjectHandler {
     project.setOwner(AuthLoginHandler.getLoginUser());
     project.setMembers(memberPrompt.promptMembers("팀원?(완료: 빈 문자열) "));
 
-    projectList.add(project);
+    requestAgent.request("project.insert", project);
 
-    System.out.println("프로젝트를 저장했습니다!");
+    if (requestAgent.getStatus().equals(RequestAgent.SUCCESS)) {
+      System.out.println("프로젝트를 저장했습니다!");
+    } else {
+      System.out.println("프로젝트 저장 실패!");
+    }
   }
 }
 

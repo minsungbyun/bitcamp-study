@@ -1,26 +1,34 @@
 package com.eomcs.pms.handler;
 
-import java.util.List;
+import java.util.HashMap;
 import com.eomcs.pms.domain.Project;
+import com.eomcs.request.RequestAgent;
 import com.eomcs.util.Prompt;
 
-public class ProjectDeleteHandler extends AbstractProjectHandler {
+public class ProjectDeleteHandler implements Command {
 
-  public ProjectDeleteHandler(List<Project> projectList) {
-    super(projectList);
+  RequestAgent requestAgent;
+
+  public ProjectDeleteHandler(RequestAgent requestAgent) {
+    this.requestAgent = requestAgent;
   }
 
   @Override
-  public void execute() {
+  public void execute(CommandRequest request) throws Exception {
     System.out.println("[프로젝트 삭제]");
-    int no = Prompt.inputInt("번호? ");
+    int no = (int) request.getAttribute("no");
 
-    Project project = findByNo(no);
+    HashMap<String,String> params = new HashMap<>();
+    params.put("no", String.valueOf(no));
 
-    if (project == null) {
+    requestAgent.request("project.selectOne", params);
+
+    if (requestAgent.getStatus().equals(RequestAgent.FAIL)) {
       System.out.println("해당 번호의 프로젝트가 없습니다.");
       return;
     }
+
+    Project project = requestAgent.getObject(Project.class);
 
     if (project.getOwner().getNo() != AuthLoginHandler.getLoginUser().getNo()) {
       System.out.println("삭제 권한이 없습니다.");
@@ -33,7 +41,13 @@ public class ProjectDeleteHandler extends AbstractProjectHandler {
       return;
     }
 
-    projectList.remove(project);
+    requestAgent.request("project.delete", params);
+
+    if (requestAgent.getStatus().equals(RequestAgent.FAIL)) {
+      System.out.println("프로젝트 삭제 실패!");
+      System.out.println(requestAgent.getObject(String.class));
+      return;
+    }
 
     System.out.println("프로젝트를 삭제하였습니다.");
   }

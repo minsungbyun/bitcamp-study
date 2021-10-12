@@ -13,6 +13,7 @@ public class Exam0110 {
     member.age = 27;
     member.gender = true;
 
+
     // 인스턴스의 값을 출력하라!
     // 1) 이름 출력 
     byte[] bytes = member.name.getBytes("UTF-8");

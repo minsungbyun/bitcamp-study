@@ -26,12 +26,20 @@ public class Exam0141 {
 
     try {
       // Driver 구현체를 명시적으로 로딩하지 않는다!
-      // 그래도 'service-provider loading' 절차에 따라
-      // mariadb의 Driver 구현체가 로딩되고 객체가 생성되어 등록될 것이다.
-
       // DriverManager에 자동 등록된 것을 확인해보자!
-      java.sql.Driver driver = DriverManager.getDriver("jdbc:mariadb:");
+      java.sql.Driver driver = DriverManager.getDriver("jdbc:mariadb://");
+
+      // 그럼에도 MariaDB Driver를 찾을 수 있다!
+      // JVM은 프로그램을 실행할 때 'service-provider loading' 절차에 따라
+      // .jar 파일에 있는 클래스를 찾아 로딩하거나 객체를 자동으로 생성한다.
+      // JDBC의 경우도 이 규칙을 따른다.
+
+      // 즉 'service-provider loading' 규칙에 따라 .jar 파일이 만들어졌다면,
+      // mariadb의 Driver 구현체가 로딩되고 객체가 생성되어 등록될 것이다.
       System.out.println(driver);
+
+
+
 
       System.out.println("테스트!");
 

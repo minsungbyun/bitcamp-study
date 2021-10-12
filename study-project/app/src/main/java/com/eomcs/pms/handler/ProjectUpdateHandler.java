@@ -1,31 +1,39 @@
 package com.eomcs.pms.handler;
 
 import java.sql.Date;
+import java.util.HashMap;
 import java.util.List;
 import com.eomcs.pms.domain.Member;
 import com.eomcs.pms.domain.Project;
+import com.eomcs.request.RequestAgent;
 import com.eomcs.util.Prompt;
 
-public class ProjectUpdateHandler extends AbstractProjectHandler {
+public class ProjectUpdateHandler implements Command {
 
+  RequestAgent requestAgent;
   MemberPrompt memberPrompt;
 
-  public ProjectUpdateHandler(List<Project> projectList, MemberPrompt memberPrompt) {
-    super(projectList);
+  public ProjectUpdateHandler(RequestAgent requestAgent, MemberPrompt memberPrompt) {
+    this.requestAgent = requestAgent;
     this.memberPrompt = memberPrompt;
   }
 
   @Override
-  public void execute() {
+  public void execute(CommandRequest request) throws Exception {
     System.out.println("[프로젝트 변경]");
-    int no = Prompt.inputInt("번호? ");
+    int no = (int) request.getAttribute("no");
 
-    Project project = findByNo(no);
+    HashMap<String,String> params = new HashMap<>();
+    params.put("no", String.valueOf(no));
 
-    if (project == null) {
-      System.out.println("해당 번호의 프로젝트가 없습니다.");
+    requestAgent.request("project.selectOne", params);
+
+    if (requestAgent.getStatus().equals(RequestAgent.FAIL)) {
+      System.out.println("해당 번호의 게시글이 없습니다.");
       return;
     }
+
+    Project project = requestAgent.getObject(Project.class);
 
     if (project.getOwner().getNo() != AuthLoginHandler.getLoginUser().getNo()) {
       System.out.println("변경 권한이 없습니다.");
@@ -51,6 +59,14 @@ public class ProjectUpdateHandler extends AbstractProjectHandler {
     project.setStartDate(startDate);
     project.setEndDate(endDate);
     project.setMembers(members);
+
+    requestAgent.request("project.update", project);
+
+    if (requestAgent.getStatus().equals(RequestAgent.FAIL)) {
+      System.out.println("프로젝트 변경 실패!");
+      System.out.println(requestAgent.getObject(String.class));
+      return;
+    }
 
     System.out.println("프로젝트를 변경하였습니다.");
   }
