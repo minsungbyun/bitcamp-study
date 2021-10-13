@@ -16,3 +16,8 @@ rootProject.name = 'study-project'
 include('app')
 include('app-client')
 include('app-server')
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e

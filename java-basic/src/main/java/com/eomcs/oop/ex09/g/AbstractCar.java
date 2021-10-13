@@ -27,10 +27,20 @@ public abstract class AbstractCar implements Car, CarCheckInfo {
   }
   public void setCc(int cc) {
     this.cc = cc;
+<<<<<<< HEAD
+=======
   }
 
   // Car 규칙에 따라 기능 구현
   @Override
+  public void start() {
+    System.out.println("시동 건다!");
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+  }
+
+  // Car 규칙에 따라 기능 구현
+  @Override
+<<<<<<< HEAD
   public void start() {
     System.out.println("시동 건다!");
   }
@@ -45,6 +55,14 @@ public abstract class AbstractCar implements Car, CarCheckInfo {
   // - 따라서 run() 메서드는 다음과 같이 추상 메서드로 남겨져 있다.
   // 
   //  public abstract void run();
+=======
+  public void shutdown() {
+    System.out.println("시동 끈다!");
+  }
+
+  @Override
+  public abstract void run();
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 
   // CarCheckInfo 규칙에 따라 기능 구현하기
   @Override

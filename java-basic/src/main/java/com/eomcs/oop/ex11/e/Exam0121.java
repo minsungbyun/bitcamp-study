@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // anonymous class : 클래스를 상속 받은 익명 클래스 정의
+=======
+// anonymous class : 인터페이스를 구현한 익명 클래스 정의
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 package com.eomcs.oop.ex11.e;
 
 public class Exam0121 {
@@ -9,6 +13,10 @@ public class Exam0121 {
   }
 
   public static void main(final String[] args) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
     // 2) 익명 클래스로 서브 클래스 만들기
     // => 인스턴스를 한 번 만 생성할 것이라면,
     //    로컬 클래스로 정의하는 것 보다 익명 클래스로 정의하는 것이 더 낫다.

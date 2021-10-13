@@ -2,8 +2,13 @@
 package com.eomcs.oop.ex09.h.test4;
 
 import com.eomcs.oop.ex09.h.Printer;
+<<<<<<< HEAD:java-basic/src/main/java/com/eomcs/oop/ex09/h/test4/Exam01.java
 import com.eomcs.oop.ex09.h.test1.FilmPrinter;
 import com.eomcs.oop.ex09.h.test1.PaperPrinter;
+=======
+import com.eomcs.oop.ex09.i.test1.FilmPrinter;
+import com.eomcs.oop.ex09.i.test1.PaperPrinter;
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e:java-basic/src/main/java/com/eomcs/oop/ex09/i/test4/Exam01.java
 
 public class Exam01 {
 

@@ -35,14 +35,22 @@ public class Score2 implements Serializable {
   @Override
   public String toString() {
     return "Score2 [name=" + name + 
+<<<<<<< HEAD
         //        ", tel=" + tel + 
         ", kor=" + kor + 
         ", eng=" + eng + 
         ", math=" + math + 
+=======
+        ", tel=" + tel + 
+        ", kor=" + kor + 
+        ", eng=" + eng + 
+        ", math="+ math + 
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
         ", sum=" + sum + 
         ", aver=" + aver + "]";
   }
 
+<<<<<<< HEAD
   //  public String getTel() {
   //    return tel;
   //  }
@@ -50,6 +58,15 @@ public class Score2 implements Serializable {
   //  public void setTel(String tel) {
   //    this.tel = tel;
   //  }
+=======
+  public String getTel() {
+    return tel;
+  }
+
+  public void setTel(String tel) {
+    this.tel = tel;
+  }
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 
   public String getName() {
     return name;

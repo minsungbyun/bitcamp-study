@@ -4,12 +4,15 @@ package com.eomcs.openapi.json;
 import java.lang.reflect.Type;
 import java.util.Collection;
 import com.google.gson.Gson;
+<<<<<<< HEAD
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+=======
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 import com.google.gson.reflect.TypeToken;
 
 public class Exam0621 {
@@ -17,6 +20,7 @@ public class Exam0621 {
 
     String jsonStr = "[{\"position\":\"대리\",\"fax\":\"02-1111-2222\",\"no\":101,\"name\":\"홍길동\",\"email\":\"hong@test.com\",\"registeredDate\":\"9월 16, 2021\"},{\"major\":\"컴퓨터공학\",\"hourPay\":10000,\"no\":103,\"name\":\"안창호\",\"email\":\"ahn@test.com\",\"registeredDate\":\"9월 16, 2021\"}]";
 
+<<<<<<< HEAD
     // JSON 데이터를 가지고 객체를 생성할 때 특정 타입의 객체로 만들어주는 어댑터
     // => 프로퍼티의 존재 유무에 따라 Manager를 생성하든가 Teacher를 생성하는 일을 한다.
     class MyJsonDeserializer implements JsonDeserializer<Member> {
@@ -49,6 +53,12 @@ public class Exam0621 {
     // JSON 데이터를 읽어서 주어진 타입의 객체를 생성한다.
     // => 단 내부에 설정된 객체 어댑터(JsonDeserializer)를 이용하여 객체를 생성한다.
     Collection<Member> list = gson.fromJson(jsonStr, collectionType);
+=======
+
+
+    Type collectionType = TypeToken.getParameterized(Collection.class, Member.class).getType();
+    Collection<Member> list = new Gson().fromJson(jsonStr, collectionType);
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 
     for (Member m : list) {
       System.out.println(m);

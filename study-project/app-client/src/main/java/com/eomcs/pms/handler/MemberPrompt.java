@@ -1,14 +1,21 @@
 package com.eomcs.pms.handler;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.List;
 import com.eomcs.pms.domain.Member;
 import com.eomcs.request.RequestAgent;
+=======
+import java.util.List;
+import com.eomcs.pms.dao.MemberDao;
+import com.eomcs.pms.domain.Member;
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 import com.eomcs.util.Prompt;
 
 public class MemberPrompt {
 
+<<<<<<< HEAD
   RequestAgent requestAgent;
 
   public MemberPrompt(RequestAgent requestAgent) {
@@ -24,6 +31,12 @@ public class MemberPrompt {
       return null;
     }
     return requestAgent.getObject(Member.class);
+=======
+  MemberDao memberDao;
+
+  public MemberPrompt(MemberDao memberDao) {
+    this.memberDao = memberDao;
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
   }
 
   protected static Member findByName(String name, List<Member> memberList) {
@@ -42,7 +55,11 @@ public class MemberPrompt {
         return null;
       }
 
+<<<<<<< HEAD
       Member member = findByName(memberName);
+=======
+      Member member = memberDao.findByName(memberName);
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
       if (member != null) {
         return member;
       }
@@ -72,7 +89,11 @@ public class MemberPrompt {
 
     while (true) {
       String memberName = Prompt.inputString(label);
+<<<<<<< HEAD
       Member member = findByName(memberName);
+=======
+      Member member = memberDao.findByName(memberName);
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
       if (member != null) {
         members.add(member);
         continue;

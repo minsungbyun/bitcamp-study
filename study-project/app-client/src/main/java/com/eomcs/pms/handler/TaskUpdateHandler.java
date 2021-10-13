@@ -1,19 +1,34 @@
 package com.eomcs.pms.handler;
 
 import java.sql.Date;
+<<<<<<< HEAD
 import com.eomcs.pms.domain.Member;
 import com.eomcs.pms.domain.Project;
 import com.eomcs.pms.domain.Task;
 import com.eomcs.request.RequestAgent;
+=======
+import com.eomcs.pms.dao.ProjectDao;
+import com.eomcs.pms.domain.Member;
+import com.eomcs.pms.domain.Project;
+import com.eomcs.pms.domain.Task;
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 import com.eomcs.util.Prompt;
 
 public class TaskUpdateHandler implements Command {
 
+<<<<<<< HEAD
   RequestAgent requestAgent;
   ProjectPrompt projectPrompt;
 
   public TaskUpdateHandler(RequestAgent requestAgent, ProjectPrompt projectPrompt) {
     this.requestAgent = requestAgent;
+=======
+  ProjectDao projectDao;
+  ProjectPrompt projectPrompt;
+
+  public TaskUpdateHandler(ProjectDao projectDao, ProjectPrompt projectPrompt) {
+    this.projectDao = projectDao;
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
     this.projectPrompt = projectPrompt;
   }
 
@@ -47,6 +62,7 @@ public class TaskUpdateHandler implements Command {
     task.setStatus(status);
     task.setOwner(owner);
 
+<<<<<<< HEAD
     requestAgent.request("project.task.update", task);
 
     if (requestAgent.getStatus().equals(RequestAgent.SUCCESS)) {
@@ -54,6 +70,11 @@ public class TaskUpdateHandler implements Command {
     } else {
       System.out.println("작업 변경 실패!");
     }
+=======
+    projectDao.updateTask(task);
+
+    System.out.println("작업를 변경하였습니다.");
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
   }
 }
 

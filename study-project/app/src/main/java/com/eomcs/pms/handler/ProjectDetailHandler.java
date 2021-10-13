@@ -1,5 +1,6 @@
 package com.eomcs.pms.handler;
 
+<<<<<<< HEAD
 import java.util.List;
 import com.eomcs.pms.domain.Member;
 import com.eomcs.pms.domain.Project;
@@ -9,6 +10,20 @@ public class ProjectDetailHandler extends AbstractProjectHandler {
 
   public ProjectDetailHandler(List<Project> projectList) {
     super(projectList);
+=======
+import java.util.HashMap;
+import com.eomcs.pms.domain.Member;
+import com.eomcs.pms.domain.Project;
+import com.eomcs.request.RequestAgent;
+import com.eomcs.util.Prompt;
+
+public class ProjectDetailHandler implements Command {
+
+  RequestAgent requestAgent;
+
+  public ProjectDetailHandler(RequestAgent requestAgent) {
+    this.requestAgent = requestAgent;
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
   }
 
   @Override
@@ -16,13 +31,27 @@ public class ProjectDetailHandler extends AbstractProjectHandler {
     System.out.println("[프로젝트 상세보기]");
     int no = Prompt.inputInt("번호? ");
 
+<<<<<<< HEAD
     Project project = findByNo(no);
 
     if (project == null) {
+=======
+    HashMap<String,String> params = new HashMap<>();
+    params.put("no", String.valueOf(no));
+
+    requestAgent.request("project.selectOne", params);
+
+    if (requestAgent.getStatus().equals(RequestAgent.FAIL)) {
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
       System.out.println("해당 번호의 프로젝트가 없습니다.");
       return;
     }
 
+<<<<<<< HEAD
+=======
+    Project project = requestAgent.getObject(Project.class);
+
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
     System.out.printf("프로젝트명: %s\n", project.getTitle());
     System.out.printf("내용: %s\n", project.getContent());
     System.out.printf("시작일: %s\n", project.getStartDate());

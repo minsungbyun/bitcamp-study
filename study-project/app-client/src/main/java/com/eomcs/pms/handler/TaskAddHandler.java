@@ -1,17 +1,31 @@
 package com.eomcs.pms.handler;
 
+<<<<<<< HEAD
 import com.eomcs.pms.domain.Project;
 import com.eomcs.pms.domain.Task;
 import com.eomcs.request.RequestAgent;
+=======
+import com.eomcs.pms.dao.ProjectDao;
+import com.eomcs.pms.domain.Project;
+import com.eomcs.pms.domain.Task;
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 import com.eomcs.util.Prompt;
 
 public class TaskAddHandler implements Command {
 
+<<<<<<< HEAD
   RequestAgent requestAgent;
   ProjectPrompt projectPrompt;
 
   public TaskAddHandler(RequestAgent requestAgent, ProjectPrompt projectPrompt) {
     this.requestAgent = requestAgent;
+=======
+  ProjectDao projectDao;
+  ProjectPrompt projectPrompt;
+
+  public TaskAddHandler(ProjectDao projectDao, ProjectPrompt projectPrompt) {
+    this.projectDao = projectDao;
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
     this.projectPrompt = projectPrompt;
   }
 
@@ -43,6 +57,7 @@ public class TaskAddHandler implements Command {
       return; 
     }
 
+<<<<<<< HEAD
     requestAgent.request("project.task.insert", task);
 
     if (requestAgent.getStatus().equals(RequestAgent.SUCCESS)) {
@@ -51,6 +66,11 @@ public class TaskAddHandler implements Command {
       System.out.println("작업 저장 실패!");
     }
 
+=======
+    projectDao.insertTask(task);
+
+    System.out.println("작업을 등록했습니다.");
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
   }
 }
 

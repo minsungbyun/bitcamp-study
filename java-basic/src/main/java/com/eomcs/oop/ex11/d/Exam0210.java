@@ -25,8 +25,13 @@ class C {
         System.out.printf("v1 = %d\n", C.this.v1);
       }
     }
+<<<<<<< HEAD
     X obj = new X(); // 컴파일 ==> new X(this); 
+=======
+    X obj = new X(); // new X(this);
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
     obj.f();
+
   }
 }
 

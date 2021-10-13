@@ -21,13 +21,34 @@ public class Exam0110 {
     };
     p1.play();
 
+    // 익명클래스  선언과 동시에 메서드 호출
+    //    new Player() {
+    //      @Override
+    //      public void play() {
+    //        System.out.println("구현");        
+    //      }
+    //    }.play();
+    // 
+
+
     // 람다 문법으로 인터페이스 구현하기
+<<<<<<< HEAD
     // => 메서드 한 개짜리 인터페이스를 좀 더 간결하게 구현하기 위해 만든 문법이다.
+=======
+    // => 메서드 한 개짜리 인터페이스를 좀 더 간결하게 구현하기 위해 익명 클래스를 
+    //    좀 더 간단히 표현하기 위해 만든 문법이다.
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
     // => 뻔한 코드 생략!
+
+
     Player p2 = () -> {
       System.out.println("람다");
     };
+<<<<<<< HEAD
     p2.play(); // 컴파일러가 만든 메서드를 호출하는 코드로 바뀐다. => lambda$0();
+=======
+    p2.play(); // lambda$0();
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
   }
 }
 
@@ -42,6 +63,7 @@ public class Exam0110 {
 // => 람다 문법이 초기에 등장했을 때는 익명 클래스로 변환되었다.
 // => 그러나 최근에는 그냥 멤버 메서드로 변환된다.
 // => 예) 
+<<<<<<< HEAD
 // 원래의 자바코드:
 //    Player p2 = () -> {
 //      System.out.println("람다");
@@ -56,6 +78,27 @@ public class Exam0110 {
 //      Line numbers:
 //        [pc: 0, line: 27]
 //        [pc: 8, line: 28]
+=======
+
+// 원래의 자바코드
+
+// Player p2 = () -> {
+//   System.out.println("람다");
+// };
+
+// 컴파일러가 변환한 코드
+
+//private static synthetic void lambda$0();
+//0  getstatic java.lang.System.out : java.io.PrintStream [33]
+//3  ldc <String "람다"> [39]
+//5  invokevirtual java.io.PrintStream.println(java.lang.String) : void [41]
+//8  return
+//  Line numbers:
+//    [pc: 0, line: 27]
+//    [pc: 8, line: 28]
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 //
+
+//    lambda$0();
 // => 람다를 호출하는 코드는 자동 생성된 메서드를 호출하는 코드로 변환된다.
 //

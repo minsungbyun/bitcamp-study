@@ -1,7 +1,11 @@
 package com.eomcs.oop.ex09.h.test3;
 
 import com.eomcs.oop.ex09.h.Printer;
+<<<<<<< HEAD:java-basic/src/main/java/com/eomcs/oop/ex09/h/test3/Printer2Adapter.java
 import com.eomcs.oop.ex09.h.test2.Printer2;
+=======
+import com.eomcs.oop.ex09.i.test2.Printer2;
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e:java-basic/src/main/java/com/eomcs/oop/ex09/i/test3/Printer2Adapter.java
 
 // 기존 작성한 클래스를 새 규격에 맞춰 재활용할 수 있게 만드는 설계 기법!
 public class Printer2Adapter implements Printer2 {

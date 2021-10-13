@@ -16,7 +16,14 @@ public class Exam0510 {
     for (String name : names) {
       System.out.println(name);
     }
+
+
   }
+
+
+
+
+
 }
 
 

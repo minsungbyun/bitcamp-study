@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // anonymous class : 클래스를 상속 받은 익명 클래스 정의
+=======
+// anonymous class : 인터페이스를 구현한 익명 클래스 정의
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 package com.eomcs.oop.ex11.e;
 
 public class Exam0120 {
@@ -19,5 +23,10 @@ public class Exam0120 {
 
     A obj = new My();
     obj.print();
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
   }
 }

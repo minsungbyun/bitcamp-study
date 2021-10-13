@@ -23,7 +23,11 @@ public class Exam0210 {
       // username : DBMS 사용자 아이디
       // password : DBMS 사용자 암호
       //
+<<<<<<< HEAD
       con = DriverManager.getConnection(
+=======
+      con = DriverManager.getConnection( //
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
           "jdbc:mariadb://localhost:3306/studydb", // jdbcURL
           "study", // username
           "1111" // password

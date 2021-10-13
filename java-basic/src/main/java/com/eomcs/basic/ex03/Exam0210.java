@@ -58,6 +58,43 @@ public class Exam0210 {
     list.add(m2);
     list.add(m3);
 
+    //    for (int i = 0; i < list.size(); i++) {
+    //      Member m = list.get(i);
+    //      System.out.printf("%s(%d)\n",m.name,m.age);
+    //    }
+
+    //    Object[] arr = list.toArray();
+    //    for (Object obj : arr) {
+    //      Member m = (Member) obj;
+    //      System.out.printf("%s(%d)\n",m.name,m.age);
+    //    }
+
+
+    //    Member[] arr = new Member[list.size()];
+    //    list.toArray(arr);
+    //    for (Member m : arr) {
+    //      System.out.printf("%s(%d)\n",m.name,m.age);
+    //    }
+    //
+
+    //    Iterator<Member> iterator = list.iterator();
+    //    while (iterator.hasNext()) {
+    //      Member m = iterator.next();
+    //      System.out.printf("%s(%d)\n",m.name,m.age);
+    //    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     for (int i = 0; i < list.size(); i++) {
       Member m = list.get(i);
       System.out.printf("이름: %s, 나이: %d\n", m.name, m.age);

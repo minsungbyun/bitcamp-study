@@ -20,7 +20,8 @@ public class Exam0520 {
           file.isDirectory() ? "d" : "-",
               new Date(file.lastModified()),
               file.length(),
-              file.getName());
+              file.getName()
+          );
     }
 
   }

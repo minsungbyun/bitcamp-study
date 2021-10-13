@@ -7,7 +7,10 @@ public class Exam0162 {
 
     // 배열의 클래스 정보
     String[] obj2 = new String[10];
+<<<<<<< HEAD
 
+=======
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
     Class classInfo = obj2.getClass();
     System.out.println(classInfo.getName()); //[Ljava.lang.String;
 

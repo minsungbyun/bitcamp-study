@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // 객체 --> JSON 문자열 : 다양한 타입의 객체를 목록에 포함하는 경우
+=======
+// 객체 --> JSON 문자열 : 다른 객체를 목록으로 포함하는 경우
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 package com.eomcs.openapi.json;
 
 import java.sql.Date;
