@@ -40,7 +40,7 @@ class Musics {
       // => 바깥_클래스명.this 내장 변수에 보관한다.
       // => Player를 만든 Musics 객체를 사용하고 싶다면 "바깥_클래스명.this" 변수를 이용하라.
       //
-      for (final String song : songs) {
+      for (final String song : /*Musics.this.*/songs) {
         System.out.println(song);
       }
       System.out.println("-----------------------------");

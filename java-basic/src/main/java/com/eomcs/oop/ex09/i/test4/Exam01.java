@@ -1,7 +1,7 @@
 // 인터페이스와 디폴트 메서드
 package com.eomcs.oop.ex09.i.test4;
 
-import com.eomcs.oop.ex09.i.Printer;
+import com.eomcs.oop.ex09.h.Printer;
 import com.eomcs.oop.ex09.i.test1.FilmPrinter;
 import com.eomcs.oop.ex09.i.test1.PaperPrinter;
 

@@ -45,15 +45,16 @@ public class Exam0222 {
     // 컴파일러는 파라미터로 받은 ArrayList가 어떤 타입의 값을 다루는 지 알 수 없기 때문에 
     // 그 타입인지 검사해야 하는 메서드를 사용할 때는 컴파일을 명확하게 해줄 수 없다.
     // 따라서 컴파일 오류를 발생시킨다.
+    // 다음 add() 처럼 제네릭에 대한 타입 검사가 필요한 메서드를 호출할때는
     // 즉 제네릭에 대한 타입 검사가 필요한 메서드를 호출할 때는 
     // 타입이 지정되어 있지 않기 때문에 유효한 문법인지 알 수 없어서 
     // 컴파일 할 수 없다.
     //
-    //    list.add(new Object());
-    //    list.add(new A());
-    //    list.add(new B1());
-    //    list.add(new B2());
-    //    list.add(new C());
+    //        list.add(new Object());
+    //        list.add(new A());
+    //        list.add(new B1());
+    //        list.add(new B2());
+    //        list.add(new C());
 
     Object obj1 = list.get(0);
 

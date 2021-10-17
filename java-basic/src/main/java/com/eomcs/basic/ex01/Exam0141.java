@@ -29,7 +29,10 @@ public class Exam0141 {
 
     System.out.println(obj1 == obj2);
     System.out.println(obj1.equals(obj2));
+<<<<<<< HEAD
     System.out.println(obj1.hashCode());
+=======
+>>>>>>> 8836a5b6efb52ef6b07d74c7a87c129546f01622
 
     System.out.println(Integer.toHexString(obj1.hashCode()));
     System.out.println(Integer.toHexString(obj2.hashCode()));

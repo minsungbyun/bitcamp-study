@@ -1,4 +1,4 @@
-// anonymous class - 수퍼 클래스와 인터페이스를 동시에 지정할 수 있을까?
+// anonymous class - 클래스를 상속받은 익명 클래스
 package com.eomcs.oop.ex11.e;
 
 public class Exam0130 {

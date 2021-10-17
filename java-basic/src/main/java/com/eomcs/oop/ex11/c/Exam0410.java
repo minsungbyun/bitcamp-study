@@ -1,6 +1,7 @@
 // inner class : import 사용
 package com.eomcs.oop.ex11.c;
 
+// 중첩 클래스를 직접 import할 수 있다.
 import com.eomcs.oop.ex11.c.D.X;
 import com.eomcs.oop.ex11.c.sub.M;
 import com.eomcs.oop.ex11.c.sub.M.Y;
@@ -19,6 +20,8 @@ public class Exam0410 {
     D outer = new D();
     X obj = outer.new X();
     obj.test();
+
+
 
     M outer2 = new M();
     Y obj2 = outer2.new Y();
