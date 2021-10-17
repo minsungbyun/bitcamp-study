@@ -12,8 +12,12 @@ public class Exam0110 {
     stack.push("aaa");
     stack.push("bbb");
     stack.push("ccc");
+<<<<<<< HEAD
+    //stack.push(new Date());  // 타입 파라미터에 전달한 타입과 일치하지 않으면 오류!  
+=======
     //    stack.push(new Date());
 
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 
     // pop() - 스택의 맨 마지막에 입력된 값부터 꺼낸다.
     // => 그래서 스택은 LIFO(Last In First Out) 방식으로 데이터를 다룬다.

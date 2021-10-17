@@ -1,6 +1,7 @@
 package com.eomcs.pms.handler;
 
 import java.sql.Date;
+<<<<<<< HEAD
 import java.util.List;
 import com.eomcs.pms.domain.Member;
 import com.eomcs.util.Prompt;
@@ -13,6 +14,25 @@ public class MemberAddHandler extends AbstractMemberHandler {
 
   @Override
   public void execute(CommandRequest request) {
+<<<<<<< HEAD
+=======
+=======
+import com.eomcs.pms.domain.Member;
+import com.eomcs.request.RequestAgent;
+import com.eomcs.util.Prompt;
+
+public class MemberAddHandler implements Command {
+
+  RequestAgent requestAgent;
+
+  public MemberAddHandler(RequestAgent requestAgent) {
+    this.requestAgent = requestAgent;
+  }
+
+  @Override
+  public void execute(CommandRequest request) throws Exception {
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
     System.out.println("[회원 등록]");
 
     Member member = new Member();
@@ -25,7 +45,17 @@ public class MemberAddHandler extends AbstractMemberHandler {
     member.setTel(Prompt.inputString("전화? "));
     member.setRegisteredDate(new Date(System.currentTimeMillis()));
 
+<<<<<<< HEAD
     memberList.add(member);
+=======
+    requestAgent.request("member.insert", member);
+
+    if (requestAgent.getStatus().equals(RequestAgent.SUCCESS)) {
+      System.out.println("회원을 등록했습니다.");
+    } else {
+      System.out.println("회원 등록 실패!");
+    }
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
   }
 }
 

@@ -14,10 +14,15 @@ public class Exam0161 {
     classInfo = obj2.getClass();
     System.out.println(classInfo.getName()); //[Ljava.lang.String;
 
+<<<<<<< HEAD
+    //    int i = 100;
+    //    classInfo = i.getClass(); // primitive type은 Object의 서브 클래스가 아니다.
+=======
 
     //    int i = 100;
     //    classInfo = i.getClass();  // primitive type는 Object의 서브 클래스가 아니다.
 
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 
     int[] obj3 = new int[10];
     classInfo = obj3.getClass();

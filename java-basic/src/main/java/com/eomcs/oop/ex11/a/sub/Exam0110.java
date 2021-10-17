@@ -18,5 +18,10 @@ public class Exam0110 {
     // import도 할 필요 없다.
     A obj3 = new A();
     B obj4 = new B();
+    // public 으로 공개되지 않은 클래스는 같은 패키지에서만 접근할 수 있다.
+    com.eomcs.oop.ex11.a.sub.B obj2 = new com.eomcs.oop.ex11.a.sub.B(); // OK!
+
+
+
   }
 }

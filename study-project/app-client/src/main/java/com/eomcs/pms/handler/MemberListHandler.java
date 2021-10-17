@@ -1,6 +1,10 @@
 package com.eomcs.pms.handler;
 
 import java.util.Collection;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
 import com.eomcs.pms.domain.Member;
 import com.eomcs.request.RequestAgent;
 
@@ -10,12 +14,30 @@ public class MemberListHandler implements Command {
 
   public MemberListHandler(RequestAgent requestAgent) {
     this.requestAgent = requestAgent;
+<<<<<<< HEAD
+=======
+=======
+import com.eomcs.pms.dao.MemberDao;
+import com.eomcs.pms.domain.Member;
+
+public class MemberListHandler implements Command {
+
+  MemberDao memberDao;
+
+  public MemberListHandler(MemberDao memberDao) {
+    this.memberDao = memberDao;
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
   }
 
   @Override
   public void execute(CommandRequest request) throws Exception {
     System.out.println("[회원 목록]");
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
     requestAgent.request("member.selectList", null);
 
     if (requestAgent.getStatus().equals(RequestAgent.FAIL)) {
@@ -24,6 +46,12 @@ public class MemberListHandler implements Command {
     }
 
     Collection<Member> memberList = requestAgent.getObjects(Member.class);
+<<<<<<< HEAD
+=======
+=======
+    Collection<Member> memberList = memberDao.findAll();
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
 
     for (Member member : memberList) {
       System.out.printf("%d, %s, %s, %s, %s\n", 

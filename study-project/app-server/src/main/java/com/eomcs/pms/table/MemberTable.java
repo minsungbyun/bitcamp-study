@@ -21,7 +21,14 @@ public class MemberTable extends JsonDataTable<Member> implements DataProcessor 
       case "member.selectList": selectList(request, response); break;
       case "member.selectOne": selectOne(request, response); break;
       case "member.selectOneByEmailPassword": selectOneByEmailPassword(request, response); break;
+<<<<<<< HEAD
       case "member.selectOneByName": selectOneByName(request, response); break;
+=======
+<<<<<<< HEAD
+=======
+      case "member.selectOneByName": selectOneByName(request, response); break;
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
       case "member.update": update(request, response); break;
       case "member.delete": delete(request, response); break;
       default:
@@ -75,6 +82,11 @@ public class MemberTable extends JsonDataTable<Member> implements DataProcessor 
     }
   }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
   private void selectOneByName(Request request, Response response) throws Exception {
     String name = request.getParameter("name");
     System.out.println("-----> " + name);
@@ -95,6 +107,10 @@ public class MemberTable extends JsonDataTable<Member> implements DataProcessor 
     }
   }
 
+<<<<<<< HEAD
+=======
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
   private void update(Request request, Response response) throws Exception {
     Member member = request.getObject(Member.class);
 

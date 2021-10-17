@@ -27,12 +27,20 @@ public class Exam0141 {
     obj2.name = "홍길동";
     obj2.age = 20;
 
+<<<<<<< HEAD
+    System.out.println(obj1 == obj2); // false
+    System.out.println(obj1.equals(obj2)); // false
+=======
     System.out.println(obj1 == obj2);
     System.out.println(obj1.equals(obj2));
+<<<<<<< HEAD
 <<<<<<< HEAD
     System.out.println(obj1.hashCode());
 =======
 >>>>>>> 8836a5b6efb52ef6b07d74c7a87c129546f01622
+=======
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
 
     System.out.println(Integer.toHexString(obj1.hashCode()));
     System.out.println(Integer.toHexString(obj2.hashCode()));

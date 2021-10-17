@@ -26,10 +26,13 @@ public class Exam0123 {
       Member other = (Member) obj;
       return age == other.age && Objects.equals(name, other.name);
     }
+<<<<<<< HEAD
+=======
 
     // String의 equals()처럼 내용이 같은지를 비교하도록 만들고 싶다면,
     // Object에서 상속 받은 메서드를 오버라이딩 하라.
 
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
   }
 
   public static void main(String[] args) {

@@ -2,10 +2,24 @@ package com.eomcs.pms;
 
 import java.net.ServerSocket;
 import java.net.Socket;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import java.util.Collection;
+import java.util.HashMap;
+import com.eomcs.pms.table.BoardTable;
+import com.eomcs.pms.table.JsonDataTable;
+import com.eomcs.pms.table.MemberTable;
+=======
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
 import java.util.HashMap;
 import com.eomcs.pms.table.BoardTable;
 import com.eomcs.pms.table.MemberTable;
 import com.eomcs.pms.table.ProjectTable;
+<<<<<<< HEAD
+=======
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
 import com.eomcs.server.DataProcessor;
 import com.eomcs.server.RequestProcessor;
 
@@ -17,12 +31,43 @@ public class ServerApp {
     System.out.println("서버 실행중");
     ServerSocket serverSocket = new ServerSocket(8888);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    Socket socket = serverSocket.accept();
+    System.out.println("클라이언트가 접속했음");
+
+=======
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
     // RequestProcessor 가 사용할 DataProcessor 맵 준비
     HashMap<String,DataProcessor> dataProcessorMap = new HashMap<String,DataProcessor>();
 
     // => 데이터 처리 담당자를 등록한다.
     dataProcessorMap.put("board.", new BoardTable());
     dataProcessorMap.put("member.", new MemberTable());
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+    RequestProcessor requestProcessor = new RequestProcessor(socket, dataProcessorMap);
+    requestProcessor.service();
+    requestProcessor.close();
+
+
+    // => 데이터를 파일에 저장한다.
+    Collection<DataProcessor> dataProcessors = dataProcessorMap.values();
+    for (DataProcessor dataProcessor : dataProcessors) {
+      if (dataProcessor instanceof JsonDataTable) {
+        // 만약 데이터 처리 담당자가 JsonDataTable 의 자손이라면,
+        ((JsonDataTable<?>)dataProcessor).save();
+      }
+    }
+
+    System.out.println("서버 종료");
+    serverSocket.close();
+=======
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
     dataProcessorMap.put("project.", new ProjectTable());
 
     while (true) {
@@ -41,6 +86,10 @@ public class ServerApp {
 
     //    System.out.println("서버 종료");
     //    serverSocket.close();
+<<<<<<< HEAD
+=======
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
   }
 }
 

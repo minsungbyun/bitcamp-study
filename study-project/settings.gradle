@@ -6,4 +6,13 @@ rootProject.name = 'study-project'
 // => 빌드 작업을 수행할 때 서브 프로젝트 폴더에 있는 build.gradle 파일을 참조한다.
 include('app')
 include('app-client')
+<<<<<<< HEAD
 include('app-server')
+=======
+include('app-server')
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1

@@ -17,7 +17,7 @@ public class Exam0720 {
     //
     {
       a = 100;
-      System.out.println("인스턴스 초기화 블록 실행!"); // 여러 생성자에 공통으로 실행해야하는 코드
+      System.out.println("인스턴스 초기화 블록 실행!");
     }
 
     // 생성자가 있으면,

@@ -1,5 +1,6 @@
 package com.eomcs.pms.handler;
 
+<<<<<<< HEAD
 import java.util.List;
 import com.eomcs.pms.domain.Board;
 import com.eomcs.pms.domain.Member;
@@ -9,6 +10,19 @@ public class BoardDetailHandler extends AbstractBoardHandler {
 
   public BoardDetailHandler(List<Board> boardList) {
     super(boardList);
+=======
+import java.util.HashMap;
+import com.eomcs.pms.domain.Board;
+import com.eomcs.request.RequestAgent;
+import com.eomcs.util.Prompt;
+
+public class BoardDetailHandler implements Command {
+
+  RequestAgent requestAgent;
+
+  public BoardDetailHandler(RequestAgent requestAgent) {
+    this.requestAgent = requestAgent;
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
   }
 
   @Override
@@ -16,13 +30,27 @@ public class BoardDetailHandler extends AbstractBoardHandler {
     System.out.println("[게시글 상세보기]");
     int no = Prompt.inputInt("번호? ");
 
+<<<<<<< HEAD
     Board board = findByNo(no);
 
     if (board == null) {
+=======
+    HashMap<String,String> params = new HashMap<>();
+    params.put("no", String.valueOf(no));
+
+    requestAgent.request("board.selectOne", params);
+
+    if (requestAgent.getStatus().equals(RequestAgent.FAIL)) {
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
       System.out.println("해당 번호의 게시글이 없습니다.");
       return;
     }
 
+<<<<<<< HEAD
+=======
+    Board board = requestAgent.getObject(Board.class);
+
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
     System.out.printf("제목: %s\n", board.getTitle());
     System.out.printf("내용: %s\n", board.getContent());
     System.out.printf("작성자: %s\n", board.getWriter().getName());
@@ -32,6 +60,10 @@ public class BoardDetailHandler extends AbstractBoardHandler {
     System.out.printf("조회수: %d\n", board.getViewCount());
     System.out.println();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
     Member loginUser = AuthLoginHandler.getLoginUser(); 
     if (loginUser == null || 
         (board.getWriter().getNo() != loginUser.getNo() && !loginUser.getEmail().equals("root@test.com"))) {
@@ -40,6 +72,17 @@ public class BoardDetailHandler extends AbstractBoardHandler {
 
     // BoardUpdateHandler나 BoardDeleteHandler를 실행할 때 게시글 번호를 사용할 수 있도록 
     // CommandRequest에 보관한다.
+<<<<<<< HEAD
+=======
+=======
+    //    Member loginUser = AuthLoginHandler.getLoginUser(); 
+    //    if (loginUser == null || 
+    //        (board.getWriter().getNo() != loginUser.getNo() && !loginUser.getEmail().equals("root@test.com"))) {
+    //      return;
+    //    }
+
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
     request.setAttribute("no", no);
 
     while (true) {

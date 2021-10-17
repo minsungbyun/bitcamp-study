@@ -3,7 +3,11 @@ package com.eomcs.pms.domain;
 import java.sql.Date;
 import com.eomcs.csv.CsvValue;
 
+<<<<<<< HEAD
 public class Task implements CsvValue {
+=======
+public class Task {
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
   private int no;
   private String content;
   private Date deadline;
@@ -17,6 +21,7 @@ public class Task implements CsvValue {
         + ", status=" + status + ", project=" + project + "]";
   }
 
+<<<<<<< HEAD
   // 다음 메서드는 CsvValue 규칙에 따라 정의한 메서드다.
   @Override
   public String toCsvString() {
@@ -47,6 +52,8 @@ public class Task implements CsvValue {
 
     this.setOwner(m);
   }
+=======
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
 
   public int getNo() {
     return no;

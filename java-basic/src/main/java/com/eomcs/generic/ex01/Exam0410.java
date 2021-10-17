@@ -27,7 +27,11 @@ public class Exam0410 {
 
   public static void main(String[] args) {
     // 제네릭이 적용 안된 메서드의 리턴 타입은 Object[] 이다.
+<<<<<<< HEAD
+    // => 파라미터에 넘겨 준 타입으로 형변환 해야 한다.
+=======
     // 파라미터에 넘겨 준 타입으로 형변환 해야한다.
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
     String[] arr = (String[])reverse(new String[] {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"});
     for (String value : arr) {
       System.out.print(value + ",");
@@ -35,7 +39,11 @@ public class Exam0410 {
     System.out.println();
 
     // 제네릭이 적용된 메서드의 리턴 타입은 파라미터 타입과 같은 String[] 이다.
+<<<<<<< HEAD
+    // => 따로 형변환 할 필요가 없어 편리하다.
+=======
 
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
     String[] arr2 = reverse2(new String[] {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"});
     for (String value : arr2) {
       System.out.print(value + ",");

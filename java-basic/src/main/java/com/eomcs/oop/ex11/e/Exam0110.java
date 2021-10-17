@@ -1,4 +1,4 @@
-// anonymous class : 로컬 클래스 vs 익명 클래스
+// anonymous class : 인터페이스를 구현한 익명 클래스 정의
 package com.eomcs.oop.ex11.e;
 
 public class Exam0110 {
@@ -22,6 +22,8 @@ public class Exam0110 {
 
     A obj = new My();
     obj.print();
+<<<<<<< HEAD
+=======
 
 
 
@@ -104,6 +106,6 @@ A obj = new A() {
   @Override
   public void print() {
     System.out.println("Hello!");
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
   }
-};
- */
+}

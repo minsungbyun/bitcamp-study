@@ -26,7 +26,6 @@ public class Exam0110 {
     vehicle2 = sedan; // OK
     vehicle2 = truck; // OK
 
-
     Car car2 = null;
     car2 = sedan; // OK
     car2 = truck; // OK

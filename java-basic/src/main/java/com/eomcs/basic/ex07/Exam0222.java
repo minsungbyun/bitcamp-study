@@ -4,7 +4,7 @@ package com.eomcs.basic.ex07;
 import java.util.Iterator;
 import java.util.Stack;
 
-public class Exam0231 {
+public class Exam0222 {
   public static void main(String[] args) {
 
     Stack<String> stack = new Stack<>();

@@ -4,7 +4,11 @@ package com.eomcs.basic.ex07;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+<<<<<<< HEAD
 public class Exam0230 {
+=======
+public class Exam0221 {
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
   public static void main(String[] args) {
     LinkedList<String> list = new LinkedList<>();
     list.add("aaa");

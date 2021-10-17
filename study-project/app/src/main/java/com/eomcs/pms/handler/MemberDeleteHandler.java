@@ -1,5 +1,6 @@
 package com.eomcs.pms.handler;
 
+<<<<<<< HEAD
 import java.util.List;
 import com.eomcs.pms.domain.Member;
 import com.eomcs.util.Prompt;
@@ -18,6 +19,31 @@ public class MemberDeleteHandler extends AbstractMemberHandler {
     Member member = findByNo(no);
 
     if (member == null) {
+=======
+import java.util.HashMap;
+import com.eomcs.request.RequestAgent;
+import com.eomcs.util.Prompt;
+
+public class MemberDeleteHandler implements Command {
+
+  RequestAgent requestAgent;
+
+  public MemberDeleteHandler(RequestAgent requestAgent) {
+    this.requestAgent = requestAgent;
+  }
+
+  @Override
+  public void execute(CommandRequest request) throws Exception {
+    System.out.println("[회원 삭제]");
+    int no = (int) request.getAttribute("no");
+
+    HashMap<String,String> params = new HashMap<>();
+    params.put("no", String.valueOf(no));
+
+    requestAgent.request("member.selectOne", params);
+
+    if (requestAgent.getStatus().equals(RequestAgent.FAIL)) {
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
       System.out.println("해당 번호의 회원이 없습니다.");
       return;
     }
@@ -28,7 +54,17 @@ public class MemberDeleteHandler extends AbstractMemberHandler {
       return;
     }
 
+<<<<<<< HEAD
     memberList.remove(member);
+=======
+    requestAgent.request("member.delete", params);
+
+    if (requestAgent.getStatus().equals(RequestAgent.FAIL)) {
+      System.out.println("회원 삭제 실패!");
+      System.out.println(requestAgent.getObject(String.class));
+      return;
+    }
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 
     System.out.println("회원을 삭제하였습니다.");
   }

@@ -6,7 +6,15 @@ import com.eomcs.pms.dao.BoardDao;
 import com.eomcs.pms.domain.Board;
 
 // 역할
+<<<<<<< HEAD
 // - 게시글을 데이터를 컬렉션 객체를 이용하여 관리한다.
+=======
+<<<<<<< HEAD
+// - 게시글을 데이터를 컬렉션 객체를 이용하여 관리한다.
+=======
+// - 게시글 데이터를 컬렉션 객체를 이용하여 관리한다.
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
 //
 public class ListBoardDao implements BoardDao {
   List<Board> list = new ArrayList<>();

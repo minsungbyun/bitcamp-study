@@ -14,8 +14,7 @@ public class Exam0150 {
     }
 
     try {
-      DataSource dataSource = new DefaultDataSource();
-      BoardDao boardDao = new BoardDao(dataSource);
+      BoardDao boardDao = new BoardDao();
       int count = boardDao.delete(no);
 
       if (count == 0) {

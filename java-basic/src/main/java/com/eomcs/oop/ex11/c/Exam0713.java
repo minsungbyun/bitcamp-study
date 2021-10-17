@@ -1,11 +1,20 @@
+<<<<<<< HEAD
+// inner class 응용 I : 리랙토링  
+=======
 // inner class : 응용 I
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 package com.eomcs.oop.ex11.c;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Exam0713 {
+<<<<<<< HEAD
+
+  public static void main(String[] args) {
+=======
   public static void main( String[] args) {
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
     Musics3 m1 = new Musics3();
     m1.add("aaa.mp3");
     m1.add("bbb.mp3");
@@ -15,12 +24,22 @@ public class Exam0713 {
     m2.add("xxx.mp3");
     m2.add("yyy.mp3");
 
+<<<<<<< HEAD
+    // 바깥 클래스의 인스턴스를 사용하는 inner 클래스라면
+    // inner 클래스의 객체를 만드는 역할도 
+    // 바깥 클래스가 하는데 유지보수에 더 낫다.
+    // => GRASP 설계 기법에서 "정보를 가진자가 그 일을 하라.(Information Expert)"를 적용.
+=======
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
     Musics3.Player p1 = m1.createPlayer();
     Musics3.Player p2 = m2.createPlayer();
 
     p1.play();
     p2.play();
+<<<<<<< HEAD
+=======
 
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
   }
 }
 
@@ -37,6 +56,16 @@ class Musics3 {
     songs.remove(index);
   }
 
+<<<<<<< HEAD
+  // inner 클래스의 객체를 생성하는 역할을 바깥 클래스가 맡는다.
+  public Player createPlayer() {
+    return new Player(); // ==> this.new Player();  // 바깥 클래스의 객체 주소 생략!
+  }
+
+  class Player {
+    public void play() {
+      for (final String song : Musics3.this.songs) {
+=======
   public Player createPlayer() {
     return new Player();   // this.new Player(); 
   }
@@ -46,6 +75,7 @@ class Musics3 {
 
     public void play() {
       for (final String song : /*Musics.this.*/Musics3.this.songs) {
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
         System.out.println(song);
       }
       System.out.println("-----------------------------");

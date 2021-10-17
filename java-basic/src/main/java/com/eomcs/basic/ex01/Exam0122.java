@@ -38,7 +38,7 @@ public class Exam0122 extends Object {
     // toString()의 리턴 값?
     // => Object의 toString()을 호출하면 다음 형식의 문자열을 리턴한다. 
     //       "패키지 이름을 포함한 클래스명@인스턴스 식별자"
-    // 예) com.eomcs.oop.ex06.d.Exam0110$Score@12a74311
+    // 예) com.eomcs.oop.ex06.d.Exam0122$Score@12a74311
     //
     // 인스턴스 식별자?
     // => 인스턴스의 주소가 아니다. 자바는 절대로 메모리 주소를 알려주지 않는다!

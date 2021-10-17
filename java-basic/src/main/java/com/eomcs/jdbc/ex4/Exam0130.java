@@ -13,8 +13,7 @@ public class Exam0130 {
     }
 
     try {
-      DataSource dataSource = new DefaultDataSource();
-      BoardDao boardDao = new BoardDao(dataSource);
+      BoardDao boardDao = new BoardDao();
       Board board = boardDao.findBy(no);
 
       if (board != null) {

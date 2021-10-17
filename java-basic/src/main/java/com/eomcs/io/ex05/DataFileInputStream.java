@@ -32,6 +32,7 @@ public class DataFileInputStream extends FileInputStream {
     long value = 0;
     value += (long) this.read() << 56;
     value += (long) this.read() << 48;
+    \
     value += (long) this.read() << 40;
     value += (long) this.read() << 32;
     value += (long) this.read() << 24;

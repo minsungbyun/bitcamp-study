@@ -11,19 +11,19 @@ import java.io.Serializable;
 //    이 인터페이스를 구현하는 클래스는 따로 메서드를 구현할 필요가 없다.
 //
 public class Score2 implements Serializable {
-  
+
   private String name;
-  private String tel; // Test2_1을 실행한 후 이 필드를 추가하라!
+  //  private String tel; // Test2_1을 실행한 후 이 필드를 추가하라!
   private int kor;
   private int eng;
   private int math;
   private int sum;
   private float aver;
-  
+
   public Score2() {
     System.out.println("Score2()");
   }
-  
+
   public Score2(String name, int kor, int eng, int math) {
     this.name = name;
     this.kor = kor;
@@ -34,10 +34,31 @@ public class Score2 implements Serializable {
 
   @Override
   public String toString() {
-    return "Score2 [name=" + name + ", tel=" + tel + ", kor=" + kor + ", eng=" + eng + ", math="
-        + math + ", sum=" + sum + ", aver=" + aver + "]";
+    return "Score2 [name=" + name + 
+<<<<<<< HEAD
+        //        ", tel=" + tel + 
+        ", kor=" + kor + 
+        ", eng=" + eng + 
+        ", math=" + math + 
+=======
+        ", tel=" + tel + 
+        ", kor=" + kor + 
+        ", eng=" + eng + 
+        ", math="+ math + 
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+        ", sum=" + sum + 
+        ", aver=" + aver + "]";
   }
 
+<<<<<<< HEAD
+  //  public String getTel() {
+  //    return tel;
+  //  }
+  //
+  //  public void setTel(String tel) {
+  //    this.tel = tel;
+  //  }
+=======
   public String getTel() {
     return tel;
   }
@@ -45,6 +66,7 @@ public class Score2 implements Serializable {
   public void setTel(String tel) {
     this.tel = tel;
   }
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 
   public String getName() {
     return name;
@@ -88,7 +110,7 @@ public class Score2 implements Serializable {
   public float getAver() {
     return aver;
   }
-  
+
   public void compute() {
     this.sum = this.kor + this.eng + this.math;
     this.aver = this.sum / 3f;
