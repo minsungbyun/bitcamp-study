@@ -1,29 +1,19 @@
 package com.eomcs.pms.handler;
 
-<<<<<<< HEAD
-import java.util.HashMap;
-import com.eomcs.pms.domain.Board;
-import com.eomcs.request.RequestAgent;
-=======
+import org.apache.ibatis.session.SqlSession;
 import com.eomcs.pms.dao.BoardDao;
 import com.eomcs.pms.domain.Board;
 import com.eomcs.pms.domain.Member;
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 import com.eomcs.util.Prompt;
 
 public class BoardDetailHandler implements Command {
 
-<<<<<<< HEAD
-  RequestAgent requestAgent;
-
-  public BoardDetailHandler(RequestAgent requestAgent) {
-    this.requestAgent = requestAgent;
-=======
   BoardDao boardDao;
+  SqlSession sqlSession;
 
-  public BoardDetailHandler(BoardDao boardDao) {
+  public BoardDetailHandler(BoardDao boardDao, SqlSession sqlSession) {
     this.boardDao = boardDao;
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+    this.sqlSession = sqlSession;
   }
 
   @Override
@@ -31,27 +21,13 @@ public class BoardDetailHandler implements Command {
     System.out.println("[게시글 상세보기]");
     int no = Prompt.inputInt("번호? ");
 
-<<<<<<< HEAD
-    HashMap<String,String> params = new HashMap<>();
-    params.put("no", String.valueOf(no));
-
-    requestAgent.request("board.selectOne", params);
-
-    if (requestAgent.getStatus().equals(RequestAgent.FAIL)) {
-=======
     Board board = boardDao.findByNo(no);
 
     if (board == null) {
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
       System.out.println("해당 번호의 게시글이 없습니다.");
       return;
     }
 
-<<<<<<< HEAD
-    Board board = requestAgent.getObject(Board.class);
-
-=======
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
     System.out.printf("제목: %s\n", board.getTitle());
     System.out.printf("내용: %s\n", board.getContent());
     System.out.printf("작성자: %s\n", board.getWriter().getName());
@@ -61,19 +37,14 @@ public class BoardDetailHandler implements Command {
     System.out.printf("조회수: %d\n", board.getViewCount());
     System.out.println();
 
-<<<<<<< HEAD
-    //    Member loginUser = AuthLoginHandler.getLoginUser(); 
-    //    if (loginUser == null || 
-    //        (board.getWriter().getNo() != loginUser.getNo() && !loginUser.getEmail().equals("root@test.com"))) {
-    //      return;
-    //    }
-=======
+    boardDao.updateCount(no);
+    sqlSession.commit();
+
     Member loginUser = AuthLoginHandler.getLoginUser(); 
     if (loginUser == null || 
         (board.getWriter().getNo() != loginUser.getNo() && !loginUser.getEmail().equals("root@test.com"))) {
       return;
     }
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 
     request.setAttribute("no", no);
 

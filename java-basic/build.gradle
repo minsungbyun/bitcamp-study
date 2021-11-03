@@ -17,6 +17,7 @@ repositories {
 // -> 이렇게 다운받은 라이브러리는 컴파일하거나 실행할 때 자동으로 사용된다.
 dependencies {
     implementation 'com.google.code.gson:gson:2.8.8'
+    implementation 'org.mybatis:mybatis:3.5.7'
     implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.4'
     testImplementation 'junit:junit:4.13.2'
     implementation 'com.google.guava:guava:30.1-jre'

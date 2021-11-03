@@ -1,30 +1,16 @@
 package com.eomcs.pms.handler;
 
-<<<<<<< HEAD
-import java.util.HashMap;
-import com.eomcs.pms.domain.Member;
-import com.eomcs.pms.domain.Project;
-import com.eomcs.request.RequestAgent;
-=======
 import com.eomcs.pms.dao.ProjectDao;
 import com.eomcs.pms.domain.Member;
 import com.eomcs.pms.domain.Project;
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 import com.eomcs.util.Prompt;
 
 public class ProjectDetailHandler implements Command {
 
-<<<<<<< HEAD
-  RequestAgent requestAgent;
-
-  public ProjectDetailHandler(RequestAgent requestAgent) {
-    this.requestAgent = requestAgent;
-=======
   ProjectDao projectDao;
 
   public ProjectDetailHandler(ProjectDao projectDao) {
     this.projectDao = projectDao;
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
   }
 
   @Override
@@ -32,27 +18,13 @@ public class ProjectDetailHandler implements Command {
     System.out.println("[프로젝트 상세보기]");
     int no = Prompt.inputInt("번호? ");
 
-<<<<<<< HEAD
-    HashMap<String,String> params = new HashMap<>();
-    params.put("no", String.valueOf(no));
-
-    requestAgent.request("project.selectOne", params);
-
-    if (requestAgent.getStatus().equals(RequestAgent.FAIL)) {
-=======
     Project project = projectDao.findByNo(no);
 
     if (project == null) {
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
       System.out.println("해당 번호의 프로젝트가 없습니다.");
       return;
     }
 
-<<<<<<< HEAD
-    Project project = requestAgent.getObject(Project.class);
-
-=======
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
     System.out.printf("프로젝트명: %s\n", project.getTitle());
     System.out.printf("내용: %s\n", project.getContent());
     System.out.printf("시작일: %s\n", project.getStartDate());
@@ -70,7 +42,7 @@ public class ProjectDetailHandler implements Command {
     request.setAttribute("no", no);
 
     while (true) {
-      String input = Prompt.inputString("변경(U), 삭제(D), 이전(0)>");
+      String input = Prompt.inputString("변경(U), 삭제(D), 이전(0)> ");
       switch (input) {
         case "U":
         case "u":

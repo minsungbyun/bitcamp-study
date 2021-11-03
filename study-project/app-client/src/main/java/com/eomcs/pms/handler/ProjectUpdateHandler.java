@@ -1,36 +1,23 @@
 package com.eomcs.pms.handler;
 
 import java.sql.Date;
-<<<<<<< HEAD
-import java.util.HashMap;
 import java.util.List;
-import com.eomcs.pms.domain.Member;
-import com.eomcs.pms.domain.Project;
-import com.eomcs.request.RequestAgent;
-=======
-import java.util.List;
+import org.apache.ibatis.session.SqlSession;
 import com.eomcs.pms.dao.ProjectDao;
 import com.eomcs.pms.domain.Member;
 import com.eomcs.pms.domain.Project;
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 import com.eomcs.util.Prompt;
 
 public class ProjectUpdateHandler implements Command {
 
-<<<<<<< HEAD
-  RequestAgent requestAgent;
-  MemberPrompt memberPrompt;
-
-  public ProjectUpdateHandler(RequestAgent requestAgent, MemberPrompt memberPrompt) {
-    this.requestAgent = requestAgent;
-=======
   ProjectDao projectDao;
   MemberPrompt memberPrompt;
+  SqlSession sqlSession;
 
-  public ProjectUpdateHandler(ProjectDao projectDao, MemberPrompt memberPrompt) {
+  public ProjectUpdateHandler(ProjectDao projectDao, MemberPrompt memberPrompt, SqlSession sqlSession) {
     this.projectDao = projectDao;
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
     this.memberPrompt = memberPrompt;
+    this.sqlSession = sqlSession;
   }
 
   @Override
@@ -38,27 +25,13 @@ public class ProjectUpdateHandler implements Command {
     System.out.println("[프로젝트 변경]");
     int no = (int) request.getAttribute("no");
 
-<<<<<<< HEAD
-    HashMap<String,String> params = new HashMap<>();
-    params.put("no", String.valueOf(no));
-
-    requestAgent.request("project.selectOne", params);
-
-    if (requestAgent.getStatus().equals(RequestAgent.FAIL)) {
-=======
     Project project = projectDao.findByNo(no);
 
     if (project == null) {
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
       System.out.println("해당 번호의 게시글이 없습니다.");
       return;
     }
 
-<<<<<<< HEAD
-    Project project = requestAgent.getObject(Project.class);
-
-=======
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
     if (project.getOwner().getNo() != AuthLoginHandler.getLoginUser().getNo()) {
       System.out.println("변경 권한이 없습니다.");
       return;
@@ -68,10 +41,6 @@ public class ProjectUpdateHandler implements Command {
     String content = Prompt.inputString(String.format("내용(%s)? ", project.getContent()));
     Date startDate = Prompt.inputDate(String.format("시작일(%s)? ", project.getStartDate()));
     Date endDate = Prompt.inputDate(String.format("종료일(%s)? ", project.getEndDate()));
-<<<<<<< HEAD
-
-=======
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
     List<Member> members = memberPrompt.promptMembers(String.format(
         "팀원(%s)?(완료: 빈 문자열) ", project.getMemberNames()));
 
@@ -86,18 +55,19 @@ public class ProjectUpdateHandler implements Command {
     project.setStartDate(startDate);
     project.setEndDate(endDate);
     project.setMembers(members);
-<<<<<<< HEAD
 
-    requestAgent.request("project.update", project);
-
-    if (requestAgent.getStatus().equals(RequestAgent.FAIL)) {
-      System.out.println("프로젝트 변경 실패!");
-      System.out.println(requestAgent.getObject(String.class));
-      return;
+    try {
+      projectDao.update(project);
+      projectDao.deleteMember(project.getNo());
+      for (Member m : project.getMembers()) {
+        projectDao.insertMember(project.getNo(), m.getNo());
+      }
+      sqlSession.commit();
+    } catch (Exception e) {
+      // 예외가 발생하기 전에 성공한 작업이 있으면 모두 취소한다.
+      // 그래야 다음 작업에 영향을 끼치지 않는다.
+      sqlSession.rollback();
     }
-=======
-    projectDao.update(project);
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 
     System.out.println("프로젝트를 변경하였습니다.");
   }
