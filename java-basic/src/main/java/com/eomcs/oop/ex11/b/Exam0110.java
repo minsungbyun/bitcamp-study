@@ -3,7 +3,14 @@ package com.eomcs.oop.ex11.b;
 
 class A {
   static class X {
-
+    int a;
+    static int b;
+    static void add() {
+      System.out.println("+");
+    }
+    void divide() {
+      System.out.println("/");
+    }
   }
 }
 
@@ -15,6 +22,8 @@ public class Exam0110 {
 
     // 인스턴스 생성
     obj = new A.X();
+
+
   }
 
 }

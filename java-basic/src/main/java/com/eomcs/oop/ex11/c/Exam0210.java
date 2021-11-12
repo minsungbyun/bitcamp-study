@@ -6,6 +6,7 @@ class B {
   static int v1 = 10;
   static void m1() {}
 
+
   class X {
     void test() {
       // 바깥 클래스든 패키지 멤버 클래스든 스태틱 멤버를 사용할 때는 
@@ -13,6 +14,7 @@ class B {
       System.out.println(B.v1);
       B.m1();
       System.out.println("-------------------------");
+
 
       // 그런데 중첩 클래스에서 바깥 클래스의 스태틱 멤버에 접근할 때는 
       // 바깥 클래스 이름을 생략할 수 있어 편하다.
@@ -29,11 +31,11 @@ class B {
 
 public class Exam0210 {
 
+
   public static void main(String[] args) {
     B outer = new B();
     B.X obj = outer.new X();
 
     obj.test();
   }
-
 }

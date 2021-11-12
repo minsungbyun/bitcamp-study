@@ -61,6 +61,9 @@ public class BoardDetailHandler implements Command {
     System.out.println();
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
     Member loginUser = AuthLoginHandler.getLoginUser(); 
     if (loginUser == null || 
         (board.getWriter().getNo() != loginUser.getNo() && !loginUser.getEmail().equals("root@test.com"))) {
@@ -69,6 +72,8 @@ public class BoardDetailHandler implements Command {
 
     // BoardUpdateHandler나 BoardDeleteHandler를 실행할 때 게시글 번호를 사용할 수 있도록 
     // CommandRequest에 보관한다.
+<<<<<<< HEAD
+=======
 =======
     //    Member loginUser = AuthLoginHandler.getLoginUser(); 
     //    if (loginUser == null || 
@@ -77,6 +82,7 @@ public class BoardDetailHandler implements Command {
     //    }
 
 >>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
     request.setAttribute("no", no);
 
     while (true) {

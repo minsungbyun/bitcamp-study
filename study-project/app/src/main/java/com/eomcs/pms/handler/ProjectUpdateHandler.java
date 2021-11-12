@@ -34,6 +34,9 @@ public class ProjectUpdateHandler implements Command {
 
   @Override
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
   public void execute(CommandRequest request) {
     System.out.println("[프로젝트 변경]");
     int no = (int) request.getAttribute("no");

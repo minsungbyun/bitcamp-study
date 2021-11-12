@@ -25,6 +25,7 @@ public class Exam0140 {
     System.out.println(obj1);
     System.out.println(obj2);
 
+
     // hash value?
     // - 데이터를 다른 데이터와 구분하기 위해 사용하는 특별한 정수 값이다.
 <<<<<<< HEAD

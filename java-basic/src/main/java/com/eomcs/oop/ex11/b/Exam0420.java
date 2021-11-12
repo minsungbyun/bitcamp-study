@@ -25,7 +25,7 @@ class E {
 public class Exam0420 {
 
   public static void main(String[] args) {
-    // 같은 패키지 클래스의 스태틱 멤버
+
     // => import static 으로 미리 스태틱 멤버의 패키지 정보를 알려주면,
     //    마치 같은 클래스의 멤버인양
     //    클래스 이름 없이 사용할 수 있다.

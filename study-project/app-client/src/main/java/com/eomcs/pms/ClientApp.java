@@ -13,10 +13,23 @@ import com.eomcs.context.ApplicationContextListener;
 import com.eomcs.menu.Menu;
 import com.eomcs.menu.MenuFilter;
 import com.eomcs.menu.MenuGroup;
+<<<<<<< HEAD
 import com.eomcs.pms.dao.BoardDao;
 import com.eomcs.pms.dao.MemberDao;
 import com.eomcs.pms.dao.ProjectDao;
 import com.eomcs.pms.dao.TaskDao;
+=======
+<<<<<<< HEAD
+import com.eomcs.pms.dao.impl.NetBoardDao;
+=======
+<<<<<<< HEAD
+=======
+import com.eomcs.pms.dao.impl.NetBoardDao;
+import com.eomcs.pms.dao.impl.NetMemberDao;
+import com.eomcs.pms.dao.impl.NetProjectDao;
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+>>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
 import com.eomcs.pms.handler.AuthLoginHandler;
 import com.eomcs.pms.handler.AuthLogoutHandler;
 import com.eomcs.pms.handler.AuthUserInfoHandler;
@@ -32,6 +45,15 @@ import com.eomcs.pms.handler.MemberAddHandler;
 import com.eomcs.pms.handler.MemberDeleteHandler;
 import com.eomcs.pms.handler.MemberDetailHandler;
 import com.eomcs.pms.handler.MemberListHandler;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import com.eomcs.pms.handler.MemberUpdateHandler;
+=======
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+>>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
 import com.eomcs.pms.handler.MemberPrompt;
 import com.eomcs.pms.handler.MemberUpdateHandler;
 import com.eomcs.pms.handler.ProjectAddHandler;
@@ -45,6 +67,13 @@ import com.eomcs.pms.handler.TaskDeleteHandler;
 import com.eomcs.pms.handler.TaskDetailHandler;
 import com.eomcs.pms.handler.TaskListHandler;
 import com.eomcs.pms.handler.TaskUpdateHandler;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+>>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
 import com.eomcs.pms.listener.AppInitListener;
 import com.eomcs.request.RequestAgent;
 import com.eomcs.util.Prompt;
@@ -119,6 +148,32 @@ public class ClientApp {
     sqlSession = new SqlSessionFactoryBuilder().build(Resources.getResourceAsStream(
         "com/eomcs/pms/conf/mybatis-config.xml")).openSession();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    // 데이터 관리를 담당할 DAO 객체를 준비한다.
+    NetBoardDao boardDao = new NetBoardDao(requestAgent);
+
+=======
+<<<<<<< HEAD
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+    // Command 객체 준비
+    commandMap.put("/member/add", new MemberAddHandler(requestAgent));
+    commandMap.put("/member/list", new MemberListHandler(requestAgent));
+    commandMap.put("/member/detail", new MemberDetailHandler(requestAgent));
+    commandMap.put("/member/update", new MemberUpdateHandler(requestAgent));
+    commandMap.put("/member/delete", new MemberDeleteHandler(requestAgent));
+
+<<<<<<< HEAD
+=======
+    commandMap.put("/board/add", new BoardAddHandler(requestAgent));
+    commandMap.put("/board/list", new BoardListHandler(requestAgent));
+    commandMap.put("/board/detail", new BoardDetailHandler(requestAgent));
+    commandMap.put("/board/update", new BoardUpdateHandler(requestAgent));
+    commandMap.put("/board/delete", new BoardDeleteHandler(requestAgent));
+    commandMap.put("/board/search", new BoardSearchHandler(requestAgent));
+=======
+>>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
     // 데이터 관리를 담당할 DAO 객체를 준비한다.
     BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
     MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
@@ -132,16 +187,50 @@ public class ClientApp {
     commandMap.put("/member/update", new MemberUpdateHandler(memberDao, sqlSession));
     commandMap.put("/member/delete", new MemberDeleteHandler(memberDao, sqlSession));
 
+<<<<<<< HEAD
     commandMap.put("/board/add", new BoardAddHandler(boardDao, sqlSession));
+=======
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+    commandMap.put("/board/add", new BoardAddHandler(boardDao));
+>>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
     commandMap.put("/board/list", new BoardListHandler(boardDao));
     commandMap.put("/board/detail", new BoardDetailHandler(boardDao, sqlSession));
     commandMap.put("/board/update", new BoardUpdateHandler(boardDao, sqlSession));
     commandMap.put("/board/delete", new BoardDeleteHandler(boardDao, sqlSession));
     commandMap.put("/board/search", new BoardSearchHandler(boardDao));
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+>>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
 
     commandMap.put("/auth/login", new AuthLoginHandler(memberDao));
     commandMap.put("/auth/logout", new AuthLogoutHandler());
     commandMap.put("/auth/userinfo", new AuthUserInfoHandler());
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+    MemberPrompt memberPrompt = new MemberPrompt(requestAgent);
+
+    commandMap.put("/project/add", new ProjectAddHandler(requestAgent, memberPrompt));
+    commandMap.put("/project/list", new ProjectListHandler(requestAgent));
+    commandMap.put("/project/detail", new ProjectDetailHandler(requestAgent));
+    commandMap.put("/project/update", new ProjectUpdateHandler(requestAgent, memberPrompt));
+    commandMap.put("/project/delete", new ProjectDeleteHandler(requestAgent));
+
+    ProjectPrompt projectPrompt = new ProjectPrompt(requestAgent);
+    commandMap.put("/task/add", new TaskAddHandler(requestAgent, projectPrompt));
+    commandMap.put("/task/list", new TaskListHandler(projectPrompt));
+    commandMap.put("/task/detail", new TaskDetailHandler(projectPrompt));
+    commandMap.put("/task/update", new TaskUpdateHandler(requestAgent, projectPrompt));
+    commandMap.put("/task/delete", new TaskDeleteHandler(requestAgent, projectPrompt));
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
 
     MemberPrompt memberPrompt = new MemberPrompt(memberDao);
 
@@ -152,11 +241,21 @@ public class ClientApp {
     commandMap.put("/project/delete", new ProjectDeleteHandler(projectDao, sqlSession));
 
     ProjectPrompt projectPrompt = new ProjectPrompt(projectDao);
+<<<<<<< HEAD
     commandMap.put("/task/add", new TaskAddHandler(taskDao, sqlSession));
     commandMap.put("/task/list", new TaskListHandler(projectPrompt, taskDao));
     commandMap.put("/task/detail", new TaskDetailHandler(taskDao));
     commandMap.put("/task/update", new TaskUpdateHandler(taskDao, sqlSession));
     commandMap.put("/task/delete", new TaskDeleteHandler(taskDao, sqlSession));
+=======
+    commandMap.put("/task/add", new TaskAddHandler(projectDao, projectPrompt));
+    commandMap.put("/task/list", new TaskListHandler(projectPrompt));
+    commandMap.put("/task/detail", new TaskDetailHandler(projectPrompt));
+    commandMap.put("/task/update", new TaskUpdateHandler(projectDao, projectPrompt));
+    commandMap.put("/task/delete", new TaskDeleteHandler(projectDao, projectPrompt));
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+>>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
   }
 
   // MenuGroup에서 사용할 필터를 정의한다.
@@ -233,6 +332,19 @@ public class ClientApp {
 
     createMainMenu().execute();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    // 프로그램의 실행을 끝내면, 서버와의 연결을 끊는다.
+    requestAgent.request("quit", null);
+    //    System.out.println(requestAgent.getObject(String.class));
+
+=======
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+>>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
     Prompt.close();
 
     notifyOnApplicationEnded();

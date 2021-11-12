@@ -40,10 +40,13 @@ public class Exam0310 {
     C outer = new C();
     outer.m2();
 
+<<<<<<< HEAD
+=======
 
     C.X inner = outer.new X();
     inner.test();
 
+>>>>>>> 8836a5b6efb52ef6b07d74c7a87c129546f01622
   }
 
 }

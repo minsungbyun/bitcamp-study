@@ -1,21 +1,61 @@
 package com.eomcs.pms.handler;
 
 import java.sql.Date;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+import java.util.HashMap;
+import java.util.List;
+import com.eomcs.pms.domain.Member;
+import com.eomcs.pms.domain.Project;
+import com.eomcs.request.RequestAgent;
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import com.eomcs.pms.dao.ProjectDao;
 import com.eomcs.pms.domain.Member;
 import com.eomcs.pms.domain.Project;
+<<<<<<< HEAD
+=======
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+>>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
 import com.eomcs.util.Prompt;
 
 public class ProjectUpdateHandler implements Command {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+  RequestAgent requestAgent;
+  MemberPrompt memberPrompt;
+
+  public ProjectUpdateHandler(RequestAgent requestAgent, MemberPrompt memberPrompt) {
+    this.requestAgent = requestAgent;
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
   ProjectDao projectDao;
   MemberPrompt memberPrompt;
   SqlSession sqlSession;
 
   public ProjectUpdateHandler(ProjectDao projectDao, MemberPrompt memberPrompt, SqlSession sqlSession) {
     this.projectDao = projectDao;
+<<<<<<< HEAD
+=======
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+>>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
     this.memberPrompt = memberPrompt;
     this.sqlSession = sqlSession;
   }
@@ -25,13 +65,47 @@ public class ProjectUpdateHandler implements Command {
     System.out.println("[프로젝트 변경]");
     int no = (int) request.getAttribute("no");
 
+<<<<<<< HEAD
     Project project = projectDao.findByNo(no);
 
     if (project == null) {
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+    HashMap<String,String> params = new HashMap<>();
+    params.put("no", String.valueOf(no));
+
+    requestAgent.request("project.selectOne", params);
+
+    if (requestAgent.getStatus().equals(RequestAgent.FAIL)) {
+<<<<<<< HEAD
+=======
+=======
+    Project project = projectDao.findByNo(no);
+
+    if (project == null) {
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+>>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
       System.out.println("해당 번호의 게시글이 없습니다.");
       return;
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    Project project = requestAgent.getObject(Project.class);
+
+=======
+<<<<<<< HEAD
+    Project project = requestAgent.getObject(Project.class);
+
+=======
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+>>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
     if (project.getOwner().getNo() != AuthLoginHandler.getLoginUser().getNo()) {
       System.out.println("변경 권한이 없습니다.");
       return;
@@ -41,6 +115,17 @@ public class ProjectUpdateHandler implements Command {
     String content = Prompt.inputString(String.format("내용(%s)? ", project.getContent()));
     Date startDate = Prompt.inputDate(String.format("시작일(%s)? ", project.getStartDate()));
     Date endDate = Prompt.inputDate(String.format("종료일(%s)? ", project.getEndDate()));
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+>>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
     List<Member> members = memberPrompt.promptMembers(String.format(
         "팀원(%s)?(완료: 빈 문자열) ", project.getMemberNames()));
 
@@ -55,6 +140,13 @@ public class ProjectUpdateHandler implements Command {
     project.setStartDate(startDate);
     project.setEndDate(endDate);
     project.setMembers(members);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+>>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
 
     try {
       projectDao.update(project);
@@ -68,6 +160,15 @@ public class ProjectUpdateHandler implements Command {
       // 그래야 다음 작업에 영향을 끼치지 않는다.
       sqlSession.rollback();
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+    projectDao.update(project);
+>>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+>>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
 
     System.out.println("프로젝트를 변경하였습니다.");
   }

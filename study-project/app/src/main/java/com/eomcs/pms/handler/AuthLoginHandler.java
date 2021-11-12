@@ -30,7 +30,11 @@ public class AuthLoginHandler implements Command {
 
 
   @Override
+<<<<<<< HEAD
+  public void execute(CommandRequest request) {
+=======
   public void execute(CommandRequest request) throws Exception {
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
     System.out.println("[로그인]");
 
     String email = Prompt.inputString("이메일? ");

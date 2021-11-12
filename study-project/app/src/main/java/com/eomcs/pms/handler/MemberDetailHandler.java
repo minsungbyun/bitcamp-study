@@ -58,16 +58,22 @@ public class MemberDetailHandler implements Command {
     System.out.println();
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
     Member loginUser = AuthLoginHandler.getLoginUser(); 
     if (loginUser == null || (member.getNo() != loginUser.getNo() && !loginUser.getEmail().equals("root@test.com"))) {
       return;
     }
+<<<<<<< HEAD
+=======
 =======
     //    Member loginUser = AuthLoginHandler.getLoginUser(); 
     //    if (loginUser == null || (member.getNo() != loginUser.getNo() && !loginUser.getEmail().equals("root@test.com"))) {
     //      return;
     //    }
 >>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
+>>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
 
     request.setAttribute("no", no);
 

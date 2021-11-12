@@ -4,6 +4,8 @@ package com.eomcs.lang.ex05;
 //
 public class Exam0480 {
   public static void main(String[] args) {
+
+
     // 1) 사용자 권한을 값으로 정의
     final int LOGOUT = 0x01;    // 00000001   - 로그아웃
     final int GENERAL = 0x02;   // 00000010   - 일반 로그인
