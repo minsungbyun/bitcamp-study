@@ -5,19 +5,10 @@ import com.eomcs.pms.domain.Project;
 import com.eomcs.pms.domain.Task;
 import com.eomcs.util.Prompt;
 
-<<<<<<< HEAD
 public class TaskDetailHandler extends AbstractTaskHandler {
 
   public TaskDetailHandler(ProjectPrompt projectPrompt) {
     super(projectPrompt);
-=======
-public class TaskDetailHandler implements Command {
-
-  ProjectPrompt projectPrompt;
-
-  public TaskDetailHandler(ProjectPrompt projectPrompt) {
-    this.projectPrompt = projectPrompt;
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
   }
 
   @Override
@@ -30,11 +21,7 @@ public class TaskDetailHandler implements Command {
       return;
     }
 
-<<<<<<< HEAD
     printTasks(project);
-=======
-    TaskHandlerHelper.printTasks(project);
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
 
     System.out.println("-------------------------------------");
 
@@ -48,16 +35,12 @@ public class TaskDetailHandler implements Command {
 
     System.out.printf("내용: %s\n", task.getContent());
     System.out.printf("마감일: %s\n", task.getDeadline());
-<<<<<<< HEAD
     System.out.printf("상태: %s\n", getStatusLabel(task.getStatus()));
-=======
-    System.out.printf("상태: %s\n", TaskHandlerHelper.getStatusLabel(task.getStatus()));
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
     System.out.printf("담당자: %s\n", task.getOwner().getName());
     System.out.println();
 
     Member loginUser = AuthLoginHandler.getLoginUser(); 
-    if (loginUser == null || (task.getNo() != loginUser.getNo() && !loginUser.getEmail().equals("root@test.com"))) {
+    if (loginUser == null || (project.getOwner().getNo() != loginUser.getNo() && !loginUser.getEmail().equals("root@test.com"))) {
       return;
     }
 

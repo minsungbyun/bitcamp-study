@@ -7,15 +7,9 @@ import javax.servlet.annotation.WebListener;
 
 @WebListener
 public class AppInitListener implements ServletContextListener {
-
   @Override
   public void contextInitialized(ServletContextEvent sce) {
-
     ServletContext sc = sce.getServletContext();
-    sce.getServletContext().setAttribute("contextPath", sc.getContextPath());
-
-
+    sc.setAttribute("contextPath", sc.getContextPath());
   }
-
-
 }

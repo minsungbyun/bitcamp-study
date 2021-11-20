@@ -21,29 +21,26 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-// 프론트 컨트롤러는 페이지 컨트롤러와 페이지 컨트롤러가 의존하는 객체를 생성하기 위해
-// 빈 컨테이너를 사용한다.
-// 빈 컨테이너는 개발자가 지정한 설정에 맞춰 객체를 생성한다.
-// 다음 클래스를 빈 컨테이너의 행동을 제어하는 클래스이다.
+// 프론트 컨트롤러는 객체를 보관할 수 있는 bean container를 갖고 있다.  
+// 빈컨테이너에는 페이지 컨트롤러 객체를 보관한다.
+// 또한 페이지 컨트롤러가 의존하는 객체도 보관한다.
 // 
-// 제어하는 방법
-// - 클래스 선언에 애노테이션을 붙여서 제어한다.
-// - 클래스에 필드나 메서드를 추가하여 제어한다.
-// 
+// 다음은 이런 빈컨테이너의 행동을 설정하는 클래스이다.
+//
 
-// 1) 빈 컨테이너가 자동으로 객체를 생성해야 하는 패키지를 등록한다.
+//1) 빈 컨테이너가 자동으로 객체를 생성해야 하는 패키지를 등록한다.
 @ComponentScan("com.eomcs.pms")
 
-// 2) Spring WebMVC 관련 객체를 찾아서 등록하는 기능을 활성화시킨다.
+//2) Spring WebMVC 관련 객체를 찾아서 등록하는 기능을 활성화시킨다.
 @EnableWebMvc
 
-// 3) JDBC 정보를 담고 있는 프로퍼티 파일을 로딩한다.
+//3) JDBC 정보를 담고 있는 프로퍼티 파일을 로딩한다.
 @PropertySource("classpath:com/eomcs/pms/config/jdbc.properties")
 
-// 4) 애노테이션을 이용하여 트랜잭션을 다루는 기능을 활성화시킨다.
+//4) 애노테이션을 이용하여 트랜잭션을 다루는 기능을 활성화시킨다.
 @EnableTransactionManagement
 
-// 8) 지정된 패키지의 DAO 인터페이스에 대해 구현체를 자동으로 생성한다.
+//8) 지정된 패키지의 DAO 인터페이스에 대해 구현체를 자동으로 생성한다.
 @MapperScan("com.eomcs.pms.dao")
 
 public class AppConfig {

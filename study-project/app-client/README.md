@@ -1,234 +1,49 @@
-<<<<<<< HEAD
-# 16-a. 바이트 스트림 다루기 : 바이너리 형식의 데이터 입출력(FileInputStream/FileOutputStream)
-
-지금까지,
-- 사용자가 입력한 데이터를 컬렉션 객체에 저장했다.
-- 즉 RAM에 데이터가 저장되어 있어서 프로그램을 종료하거나 컴퓨터를 끄면 데이터가 지워지는 문제가 있었다.
-
-프로그램을 종료하더라도 데이터가 지워지지 않게 하려면,
-- 외부 저장장치(예: 하드 디스크, SSD 등)에 저장해야 한다.
-- 즉 데이터를 파일로 출력해야 한다.
+# 22-b. DB 프로그래밍을 더 쉽고 간단히 하는 방법 : Mybatis에서 DAO 구현체를 자동으로 생성하기
 
 이번 훈련에서는,
-- **파일 입출력 API** 를 활용하여 데이터를 파일로 저장하고
-파일에서 데이터를 읽는 것을 연습할 것이다.
-- **바이너리(binary)** 형식으로 입출력하는 것을 연습할 것이다.
-
-**파일 입출력 API** 는,
-- 데이터를 파일로 입출력하는 다양한 도구(*클래스*, *인터페이스*)를 제공한다.
-
-**바이너리** 파일 포맷,
-- 해당 파일 포맷을 다루는 전용 프로그램을 사용해야만 편집할 수 있다.
-  - 예) 포토샵, 파워포인트, 워드, 엑셀, 동영상 편집기 등
-  - 예) .class, .hwp, .doc, .xls, .ppt, .pdf, .gif, .jpg, .avi, .wav, .mp3 등
-- 메모장 등 텍스트 편집기에서 직접 파일을 편집하지 못한다.
-- 만약 텍스트 편집기로 편집한 후에 저장하면 파일 형식이 깨져서 무효한 파일이 된다.
-- 같은 데이터를 저장하더라도 텍스트 포맷 보다는 파일의 크기가 작다.
-
-**텍스트** 파일 포맷,
-- 전용 프로그램의 도움 없이 텍스트 편집기로 직접 편집할 수 있다.
-  - 예) .txt, .csv, .html, .css, .js, .java, .xml, .rtf 등
-
-**FileInputStream** / **FileOutputStream** 은,
-
-- 바이너리 형식으로 데이터를 읽고 쓸 때 사용하는 도구다.
-- *byte stream class* 이다.
-
-## 훈련 목표
-
-- 바이너리 입출력 스트림 클래스를 사용하여 객체의 필드 값을 바이너리 형식으로 읽고 쓰는 방법을 배운다.
-
-
-## 훈련 내용
-
-- 사용자가 입력한 게시글, 회원, 프로젝트, 작업 데이터를 파일로 저장하고 파일에서 읽는다.
-
-
-## 실습
-
-
-### 1단계 - 게시글 데이터를 파일로 저장하고 파일에서 읽는다.
-
-- com.eomcs.pms.App 클래스 변경
-  - 1) 애플리케이션을 종료하기 직전 List 객체에 있는 게시글 데이터를 파일에 저장한다.
-  - 2) 애플리케이션을 실행하는 즉시 파일에서 게시글 데이터를 읽어서 List 객체에 담는다.
-
-
-
-
-
-### 1단계 - 게시글 데이터를 파일에 보관한다.
-
-- App 클래스
-  - 애플리케이션을 종료할 때 게시글 데이터를 파일에 저장하는 `saveBoards()`를 정의한다.
-  - 애플리케이션을 실행했을 때 파일에서 게시글 데이터를 읽어오는 `loadBoards()`를 정의한다.
-  - 게시글 데이터를 저장할 List 객체는 위에서 만든 메서드에서 접근할 수 있도록 스태틱 필드로 전환한다.
-
-#### 작업 파일
-
-- com.eomcs.pms.App 변경
-  - 백업: App01.java - 메서드로 분리하기 전
-  - 백업: App02.java - 메서드로 분리한 후
-
-### 2단계 - 회원 데이터를 파일에 보관한다.
-
-- App 클래스
-  - 애플리케이션을 종료할 때 회원 데이터를 파일에 저장하는 `saveMembers()`를 정의한다.
-  - 애플리케이션을 실행했을 때 파일에서 회원 데이터를 읽어오는 `loadMembers()`를 정의한다.
-  - 회원 데이터를 저장할 List 객체는 위에서 만든 메서드에서 접근할 수 있도록 스태틱 필드로 전환한다.
-
-#### 작업 파일
-
-- com.eomcs.pms.App 변경
-  - 백업: App03.java
-
-
-### 3단계 - 프로젝트 데이터를 파일에 보관한다.
-
-- App 클래스
-  - 애플리케이션을 종료할 때 프로젝트 데이터를 파일에 저장하는 `saveProjects()`를 정의한다.
-  - 애플리케이션을 실행했을 때 파일에서 프로젝트 데이터를 읽어오는 `loadProjects()`를 정의한다.
-  - 프로젝트 데이터를 저장할 List 객체는 위에서 만든 메서드에서 접근할 수 있도록 스태틱 필드로 전환한다.
-
-#### 작업 파일
-
-- com.eomcs.pms.App 변경
-  - 백업: App04.java
-
-
-### 4단계 - 작업 데이터를 파일에 보관한다.
-
-- App 클래스
-  - 애플리케이션을 종료할 때 작업 데이터를 파일에 저장하는 `saveTasks()`를 정의한다.
-  - 애플리케이션을 실행했을 때 파일에서 작업 데이터를 읽어오는 `loadTasks()`를 정의한다.
-  - 작업 데이터를 저장할 List 객체는 위에서 만든 메서드에서 접근할 수 있도록 스태틱 필드로 전환한다.
-
-#### 작업 파일
-
-- com.eomcs.pms.App 변경
-
-
-## 실습 결과
-
-- src/main/java/com/eomcs/pms/App.java 변경
-=======
-# 19-d. 데이터 관리 서버 만들기 : 프로토콜 정의 및 적용
-
-
-이번 훈련에서는,
-- **네트워크 API** 를 이용하여 데스크톱 애플리케이션을 클라이언트/서버 구조로 변경한다.
-
-데스크톱(desktop) 애플리케이션은,
-- 다른 애플리케이션과 연동하지 않고 단독적으로 실행한다.
-- 보통 PC나 노트북에 설치해서 사용한다.
-- 예) MS-Word, Adobe Photoshop, 메모장 등
-
-클라이언트(Client)/서버(Server) 애플리케이션은,
-- 줄여서 C/S 애플리케이션이라 부른다.
-- 클라이언트는 서버에게 서비스나 자원을 요청하는 일을 한다.
-- 서버는 클라이언트에게 자원이나 서비스를 제공하는 일을 한다.
+- **마이바티스** 프레임워크에서 DAO 구현체를 자동으로 생성하는 방법을 연습한다.
 
 
 ## 훈련 목표
-- 통신 프로토콜을 이해한다.
-- `extract method` 리팩토링 기법을 연습한다.
+- 
 
 ## 훈련 내용
-- 응답 프로토콜을 변경하고 그에 맞게 구현한다.
-- 응답을 수신하는 코드를 별도의 메서드로 분리한다.
-
-### 요청 프로토콜
-
-```
-요청 데이터 규칙: 
-명령(UTF-8 문자열) CRLF
-JSON 데이터(UTF-8 문자열) CRLF  <== 명령어에 따라 선택 사항
-
-예) 게시글 목록 요청
-/board/list CRLF
-
-예) 게시글 상세 요청
-/board/detail CRLF
-{"no": 1} CRLF
-
-예) 게시글 등록 요청
-/board/add CRLF
-{
-    "title": "제목", 
-    "content": "내용", 
-    "writer": {
-        "no": 1, "name": "홍길동"
-    }
-} CRLF
-
-예) 게시글 변경 요청
-board/update CRLF
-{
-    "no": 1
-    "title": "제목", 
-    "content": "내용"
-} CRLF
-
-예) 게시글 삭제 요청
-/board/delete CRLF
-{"no": 1} CRLF
-```
-
-### 응답 프로토콜
-
-```
-응답 데이터 규칙: 
-처리상태(success | fail) CRLF
-JSON 데이터(UTF-8 문자열) CRLF  <== 처리 결과에 따라 선택 사항
-
-
-예) /board/list 요청에 대한 응답
-success CRLF
-게시글 목록에 대한 JSON 데이터 CRLF
-
-
-예) board/detail 요청에 대한 응답
-success CRLF
-{
-    "no": 1
-    "title": "제목", 
-    "content": "내용", 
-    "writer": {
-        "no": 1, "name": "홍길동"
-    },
-    "registeredDate": "2021-01-01",
-    "viewCount": 11,
-    "like": 5
-} CRLF
-
-예) board/add 요청에 대한 응답
-success CRLF
-
-예) board/update 요청에 대한 응답
-success CRLF
-
-예) board/delete 요청에 대한 응답
-success CRLF
-```
+- 
 
 ## 실습
 
-### 1단계 - 프로토콜에 맞춰 게시글 데이터의 저장을 요청한다.
+### 방법1 - Mapper XML 파일을 기준으로 설정하기 
 
-- com.eomcs.pms.domain.Member 클래스 가져오기
-- com.eomcs.pms.domain.Board 클래스 가져오기
-- `com.eomcs.pms.ClientApp` 변경
-    - `addBoard()` 메서드 추가 
-        - 프로토콜에 맞춰 Board 객체를 JSON 데이터로 바꿔 서버에 보내기
-        - 서버의 응답 결과를 출력하기
+- src/main/resources/com/eomcs/pms/mapper/XxxMapper.xml 파일 변경
+  - <mapper> 루트 태그의 namespace 속성의 값을 인터페이스 이름(FQName)과 일치시킨다.
+- com.eomcs.pms.ClientApp 클래스 변경
+  - DAO 객체를 만들 때 SqlSession.getMapper()를 호출한다.
 
-### 2단계 - 프로토콜에 맞춰 게시글 데이터의 조회를 요청한다.
+### 방법2 - DAO 인터페이스를 기준으로 설정하기
 
-- `com.eomcs.pms.ClientApp` 변경
-    - `detailBoard()` 메서드 추가
-        - 프로토콜에 맞춰 Board 객체를 요구하기
-        - 서버에서 보내온 JSON 데이터로 Board 객체로 바꿔 출력하기
+- src/main/resources/com/eomcs/pms/conf/mybatis-config.xml 파일 변경
+  - <mappers> 태그에 매퍼 XML 파일을 등록하는 대신에 DAO 인터페이스의 패키지를 등록한다.
+- 기존의 매퍼 파일을 DAO 인터페이스의 패키지 폴더로 옮긴다.
+  - 매퍼 파일의 이름을 인터페이스 이름과 일치시킨다.  
 
-## 실습 결과
-- src/main/java/com/eomcs/pms/ClientApp.java 변경
->>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
+### 추가 작업1 - 트랜잭션을 다루는 일을 핸들러가 맡는다.
+
+DAO를 직접 구현하는 기존 방식에서는 insert/update/delete 한 후 DAO에서 commit()을 호출했다. DAO 구현체를 자동으로 생성하는 지금의 방식에서는 commit()/rollback()의 호출을 핸들러가 담당해야 한다.
+
+- com.eomcs.pms.handler.XxxHandler 클래스 변경
+  - SqlSession 객체를 주입 받는다.
+  - insert/update/delete 을 실행한 경우 commit() 또는 rollback()을 호출한다.
+
+### 추가 작업2 - DAO의 메서드 한 개에서 여러 개의 작업을 실행할 경우 각 SQL 작업을 별도의 메서드로 분리한다.
+
+- com.eomcs.pms.dao.ProjectDao 인터페이스 변경
+  - insertMember(), deleteMember() 메서드 추가
+- com.eomcs.pms.handler.ProjectAddHandler 클래스 변경
+  - 프로젝트를 추가할 때 멤버를 추가하도록 insertMember() 를 호출한다.
+  - try ~ catch ~를 사용하여 commit()/rollback()을 제어한다.
+- com.eomcs.pms.handler.ProjectUpdateHandler 클래스 변경
+  - 프로젝트를 변경할 때 멤버를 삭제, 추가하도록 deleteMember()와 insertMember() 를 호출한다.
+  - try ~ catch ~를 사용하여 commit()/rollback()을 제어한다.
+- com.eomcs.pms.handler.ProjectDeleteHandler 클래스 변경
+  - 프로젝트를 삭제할 때 멤버를 먼저 삭제하도록 deleteMember() 를 호출한다.
+  - try ~ catch ~를 사용하여 commit()/rollback()을 제어

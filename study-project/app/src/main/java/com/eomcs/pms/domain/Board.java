@@ -3,11 +3,7 @@ package com.eomcs.pms.domain;
 import java.sql.Date;
 import com.eomcs.csv.CsvValue;
 
-<<<<<<< HEAD
 public class Board implements CsvValue {
-=======
-public class Board  {
->>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
   private int no;
   private String title;
   private String content;
@@ -23,7 +19,6 @@ public class Board  {
         + "]";
   }
 
-<<<<<<< HEAD
   // 다음 메서드는 CsvValue 규칙에 따라 정의한 메서드다.
   @Override
   public String toCsvString() {
@@ -82,9 +77,6 @@ public class Board  {
 
     return b;
   }
-=======
-
->>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
 
   public int getNo() {
     return no;

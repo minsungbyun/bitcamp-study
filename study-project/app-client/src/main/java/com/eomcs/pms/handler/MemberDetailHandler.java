@@ -1,51 +1,15 @@
 package com.eomcs.pms.handler;
 
-<<<<<<< HEAD
 import com.eomcs.pms.dao.MemberDao;
 import com.eomcs.pms.domain.Member;
-=======
-<<<<<<< HEAD
-import java.util.HashMap;
-import com.eomcs.pms.domain.Member;
-import com.eomcs.request.RequestAgent;
-=======
-<<<<<<< HEAD
-import java.util.HashMap;
-import com.eomcs.pms.domain.Member;
-import com.eomcs.request.RequestAgent;
-=======
-import com.eomcs.pms.dao.MemberDao;
-import com.eomcs.pms.domain.Member;
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
->>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
->>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
 import com.eomcs.util.Prompt;
 
 public class MemberDetailHandler implements Command {
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
-  RequestAgent requestAgent;
-
-  public MemberDetailHandler(RequestAgent requestAgent) {
-    this.requestAgent = requestAgent;
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
   MemberDao memberDao;
 
   public MemberDetailHandler(MemberDao memberDao) {
     this.memberDao = memberDao;
-<<<<<<< HEAD
-=======
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
->>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
->>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
   }
 
   @Override
@@ -53,45 +17,12 @@ public class MemberDetailHandler implements Command {
     System.out.println("[회원 상세보기]");
     int no = Prompt.inputInt("번호? ");
 
-<<<<<<< HEAD
     Member member = memberDao.findByNo(no);
     if (member == null) {
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
-    HashMap<String,String> params = new HashMap<>();
-    params.put("no", String.valueOf(no));
-
-    requestAgent.request("member.selectOne", params);
-
-    if (requestAgent.getStatus().equals(RequestAgent.FAIL)) {
-<<<<<<< HEAD
-=======
-=======
-    Member member = memberDao.findByNo(no);
-    if (member == null) {
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
->>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
->>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
       System.out.println("해당 번호의 회원이 없습니다.");
       return;
     }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    Member member = requestAgent.getObject(Member.class);
-
-=======
-<<<<<<< HEAD
-    Member member = requestAgent.getObject(Member.class);
-
-=======
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
->>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
->>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
     System.out.printf("이름: %s\n", member.getName());
     System.out.printf("이메일: %s\n", member.getEmail());
     System.out.printf("사진: %s\n", member.getPhoto());
@@ -99,30 +30,11 @@ public class MemberDetailHandler implements Command {
     System.out.printf("등록일: %s\n", member.getRegisteredDate());
     System.out.println();
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
-    //    Member loginUser = AuthLoginHandler.getLoginUser(); 
-    //    if (loginUser == null || (member.getNo() != loginUser.getNo() && !loginUser.getEmail().equals("root@test.com"))) {
-    //      return;
-    //    }
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
     Member loginUser = AuthLoginHandler.getLoginUser(); 
     if (loginUser == null ||
         (!loginUser.getEmail().equals("root@test.com") && (member.getNo() != loginUser.getNo()))) { 
       return;
     }
-<<<<<<< HEAD
-=======
->>>>>>> 886ee553016373303f00227ad3df6ce8b9a8886e
->>>>>>> 004703bfd698e931bd53837440cacd072f9016f1
->>>>>>> 057647187ccaaf1e1c03112688dab02845955c10
 
     request.setAttribute("no", no);
 
