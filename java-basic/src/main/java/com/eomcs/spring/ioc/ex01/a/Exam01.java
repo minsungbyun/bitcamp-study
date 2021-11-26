@@ -47,6 +47,8 @@ public class Exam01 {
     ApplicationContext iocContainer = new ClassPathXmlApplicationContext(
         "com/eomcs/spring/ioc/ex01/a/application-context.xml");
 
+
+
     System.out.println("실행 완료!");
   }
 }

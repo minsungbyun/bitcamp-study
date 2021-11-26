@@ -50,8 +50,7 @@
           -->
     <bean id="c4" class="com.eomcs.spring.ioc.ex04.Car"
           p:model="티코4" p:maker="비트자동차" p:cc="890"/>
-          
-</beans>
+  </beans>
 
 
 

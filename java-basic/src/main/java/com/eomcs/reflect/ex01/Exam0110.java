@@ -6,10 +6,15 @@ class A {
 
   static void m() {
     i = 100;
+    System.out.println(i);
   }
 
   static {
     System.out.println("A 클래스 로딩!");
+  }
+
+  public A() {
+    System.out.println("A() 호출");
   }
 }
 
@@ -32,7 +37,12 @@ public class Exam0110 {
     //    new A(); // 클래스 로딩 확인!
     //    new A(); // 클래스는 중복으로 로딩되지 않는다.
 
-    //    Class.forName("com.eomcs.reflect.ex01.A");
+    Class.forName("com.eomcs.reflect.ex01.A");
+    Class.forName("com.eomcs.reflect.ex01.A");
+    Class.forName("com.eomcs.reflect.ex01.A");
+    Class.forName("com.eomcs.reflect.ex01.A");
+    Class.forName("com.eomcs.reflect.ex01.A");
+    Class.forName("com.eomcs.reflect.ex01.A");
     // 파라미터로 패키지명을 포함한 전체 클래스 이름을 지정해야 한다.
     // 패키지명을 포함한 전체 클래스 이름
     // = fully qualified class name

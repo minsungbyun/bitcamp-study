@@ -3,6 +3,7 @@ package com.eomcs.spring.ioc.ex10.a;
 import org.springframework.context.annotation.Bean;
 import com.eomcs.spring.ioc.ex10.Car;
 
+
 public class AppConfig {
 
   // @Component와 같은 애노테이션을 사용할 수 없는 경우
